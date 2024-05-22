@@ -1,0 +1,14 @@
+.article-partner {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: 159px;
+  padding: 0 53px;
+  border: 1px solid rgba($blue-light, 0.5);
+
+  &__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

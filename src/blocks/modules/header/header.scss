@@ -1,0 +1,26 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 36px 0;
+  width: 100%;
+  z-index: 2;
+
+  @include r($mobile) {
+    padding: 13px 0;
+    min-width: 375px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    .button {
+      //transform: translate(0, -100px);
+      //opacity: 0;
+    }
+  }
+}

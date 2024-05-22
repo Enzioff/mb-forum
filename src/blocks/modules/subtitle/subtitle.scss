@@ -1,0 +1,19 @@
+.subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.2px;
+  color: $blue-light;
+
+  @include r($mobile) {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+  }
+
+  &--blue {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32.4px;
+    color: $blue-white;
+  }
+}

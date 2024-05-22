@@ -1,0 +1,57 @@
+.attention {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px);
+  display: flex;
+  margin-top: 0;
+  padding: 16px 26px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  color: $red-accent;
+  border-radius: 4px;
+  background-color: $white;
+  white-space: nowrap;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s linear;
+  z-index: 2;
+
+  @include r($mobile) {
+    position: static;
+    padding: 0;
+    background-color: transparent;
+    transform: none;
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+
+    @include r($mobile) {
+      margin-top: 8px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    content: '';
+    display: flex;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid $white;
+    transform: translateY(-50%) rotate(-90deg);
+
+    @include r($mobile) {
+      display: none;
+    }
+  }
+}

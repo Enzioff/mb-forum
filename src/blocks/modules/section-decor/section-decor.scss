@@ -1,0 +1,77 @@
+.section-decor {
+  &__blur {
+    position: absolute;
+    display: flex;
+    width: 465px;
+    height: 465px;
+    transform: rotate(44deg);
+    filter: blur(10px);
+    z-index: 0;
+
+    &--1 {
+      top: 350px;
+      left: -232px;
+    }
+
+    &--2 {
+      top: 600px;
+      right: -100px;
+
+      @include r($mobile) {
+        top: 0;
+        right: -300px;
+        transform: rotate(26deg);
+      }
+    }
+
+    &--3 {
+      left: -130px;
+      bottom: 30px;
+      transform: rotate(0);
+      filter: blur(10px) opacity(0.7);
+    }
+  }
+
+  &__drop {
+    position: absolute;
+    z-index: 0;
+
+    &--1 {
+      top: 500px;
+      left: -10px;
+
+      @include r($mobile) {
+        top: 531px;
+        left: -30px;
+      }
+    }
+
+    &--2 {
+      top: 840px;
+      right: 50px;
+
+      @include r($mobile) {
+        top: 63px;
+        right: -70px;
+        transform: rotate(45deg);
+      }
+    }
+
+    &--3 {
+      left: 120px;
+      bottom: 40px;
+      display: flex;
+      width: 291px;
+      height: 291px;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+}

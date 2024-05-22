@@ -1,0 +1,49 @@
+.decor {
+  position: relative;
+  transform: translateX(100px);
+
+  @include r($mobile) {
+    transform: none;
+    max-width: 400px;
+  }
+
+  &__block {
+    position: absolute;
+    right: -27px;
+    bottom: -36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 213px;
+    height: 213px;
+    background-color: $blue-black;
+    border-radius: 28px;
+    box-shadow: 26px 31px 80px 0px #04183366;
+
+    @include r($mobile) {
+      left: 67%;
+      top: 72.7%;
+      width: 36.4%;
+      height: 31.7%;
+      padding: 0 13px;
+      border-radius: 16px;
+    }
+  }
+
+  &__wave {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    width: 205px;
+    height: 289px;
+    transform: rotate(-116deg);
+    z-index: 1;
+
+    @include r($mobile) {
+      top: -34px;
+      left: 28px;
+      width: 38%;
+      height: 47%;
+    }
+  }
+}

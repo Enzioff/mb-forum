@@ -1,0 +1,39 @@
+.preview {
+  display: flex;
+  align-items: center;
+  gap: 109px;
+  margin-bottom: 53px;
+  width: 870px;
+  height: 300px;
+  padding: 13px;
+  background-color: $blue-black;
+  border-radius: 180px;
+  background-image: url("../assets/images/pattern-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #041935;
+
+  @include r($mobile) {
+    gap: 18px;
+    width: 335px;
+    height: 138px;
+    margin-bottom: 40px;
+    padding: 8px;
+  }
+
+  &__button {
+    cursor: pointer;
+    @include r($mobile) {
+      flex-shrink: 0;
+      width: 122px;
+      height: 122px;
+    }
+  }
+
+  &__logo {
+    @include r($mobile) {
+      max-width: 140px;
+    }
+  }
+}

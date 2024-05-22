@@ -1,0 +1,141 @@
+.article-feedback {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 600px;
+  padding: 60px 50px;
+  background-color: $blue-black;
+  border-radius: 30px;
+  overflow: hidden;
+
+  @include r($mobile) {
+    padding: 50px 25px;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38.4px;
+    text-transform: uppercase;
+    color: $white;
+    z-index: 1;
+
+    @include r($mobile) {
+      font-size: 30px;
+      line-height: 36px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 44px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32.4px;
+    color: $white;
+    z-index: 1;
+
+    @include r($mobile) {
+      margin-bottom: 35px;
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+  }
+
+  &__button {
+    min-width: 242px;
+    z-index: 2;
+
+    @include r($mobile) {
+      min-width: 182px;
+    }
+    svg {
+      display: flex;
+      width: 33px;
+      height: 26px;
+    }
+  }
+
+  &__phone {
+    position: absolute;
+    right: 0;
+    bottom: -96px;
+    transform: rotate(14deg);
+    pointer-events: none;
+    z-index: 1;
+
+    @include r($mobile) {
+      right: -37px;
+      bottom: -78px;
+      width: 282px;
+      height: 495px;
+    }
+
+    &--second {
+      right: initial;
+      left: -313px;
+
+      @include r($mobile) {
+        bottom: 562px;
+        left: 92px;
+      }
+    }
+  }
+
+  &__wave {
+    position: absolute;
+    left: -96px;
+    bottom: -121px;
+    opacity: 0.3;
+    transform: rotate(55deg);
+    pointer-events: none;
+
+    &--second {
+      left: initial;
+      right: -386px;
+
+      @include r($mobile) {
+        display: none;
+      }
+    }
+  }
+
+  .article-feedback__drop {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    &--blur {
+      top: 20px;
+      left: -120px;
+      transform: scale(-1, 1) rotate(35deg);
+      filter: blur(10px);
+
+      &-2 {
+        top: 60px;
+        right: -150px;
+        transform: scale(-0.8, 0.8) rotate(35deg);
+        filter: blur(10px);
+      }
+    }
+
+    &--1 {
+      bottom: -65px;
+      z-index: 2;
+      transform: scale(-1, 1);
+
+      @include r($mobile) {
+        bottom: -100px;
+        left: -80px;
+      }
+    }
+
+    &--2 {
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      transform: scale(1, 1);
+    }
+  }
+}

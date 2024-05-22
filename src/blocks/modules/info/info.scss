@@ -1,0 +1,60 @@
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  @include r($mobile) {
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    @include r($mobile) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__detail {
+    max-width: 560px;
+  }
+
+  &__text {
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32.4px;
+    color: $blue;
+
+    @include r($mobile) {
+      font-size: 16px;
+      line-height: 28.8px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19.2px;
+      color: $blue-black;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+  }
+
+  &__icon {
+    display: flex;
+    width: 32px;
+    height: 32px;
+  }
+}

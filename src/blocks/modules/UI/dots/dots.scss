@@ -1,0 +1,18 @@
+.dots {
+  position: absolute;
+
+  &--1 {
+    top: 50px;
+    left: 700px;
+  }
+
+  &--2 {
+    top: 150px;
+    left: 165px;
+  }
+
+  &--3 {
+    top: 330px;
+    left: 545px;
+  }
+}

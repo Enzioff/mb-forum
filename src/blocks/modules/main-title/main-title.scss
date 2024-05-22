@@ -1,0 +1,17 @@
+.main-title {
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 96px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white;
+
+  span {
+    color: $red;
+  }
+
+  @include r($mobile) {
+    font-size: 41px;
+    line-height: 49.2px;
+  }
+}

@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--line {
+    display: flex;
+
+    .article-guest {
+      flex-shrink: 0;
+      max-width: 278px;
+    }
+  }
+
+  &--mobile {
+    @include r($mobile) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+
+    &--whatsapp {
+      background: linear-gradient(136.74deg, #85E88E 0%, #3ADC49 97.15%);
+
+      .social__icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    &--tg {
+      background: linear-gradient(136.27deg, #8BCDEE 0%, #2AA1DD 66.21%);
+
+      .social__icon {
+        width: 27px;
+        height: 22px;
+      }
+    }
+
+    &--vk {
+      background: linear-gradient(132.32deg, #99BCFF -6.16%, #548CF6 61.82%);
+
+      .social__icon {
+        width: 27px;
+        height: 17px;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    width: 28px;
+    height: 28px;
+  }
+}

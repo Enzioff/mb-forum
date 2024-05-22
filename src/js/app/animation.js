@@ -1,0 +1,34 @@
+import { gsap } from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { initFeaturesAnimation } from "../animations/features";
+import { initHeaderAnimation } from "../animations/header";
+import { initIntroAnimation } from "../animations/intro";
+import { initInfoAnimation } from "../animations/info";
+import { initGuestAnimation } from "../animations/guest";
+import { initAboutAnimation } from "../animations/about";
+
+document.addEventListener("DOMContentLoaded", () => {
+  initAnimations();
+});
+
+const initAnimations = () => {
+  initSmoothScroll();
+  initHeaderAnimation();
+  initIntroAnimation();
+  initInfoAnimation();
+  initGuestAnimation();
+  initFeaturesAnimation();
+  initAboutAnimation();
+};
+
+const initSmoothScroll = () => {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+  ScrollSmoother.create({
+    smooth: 1,
+    effects: true,
+    smoothTouch: 0.1
+  });
+};

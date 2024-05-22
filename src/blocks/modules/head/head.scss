@@ -1,0 +1,40 @@
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &--left {
+    justify-content: space-between;
+    .head__info {
+      align-items: flex-start;
+    }
+  }
+
+  &__text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32.4px;
+    color: $white;
+
+    &--dark {
+      margin-bottom: 34px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 25.2px;
+      color: rgba($white, 0.6);
+    }
+  }
+
+  &--center-mobile {
+    @include r($mobile) {
+      text-align: center;
+    }
+  }
+}

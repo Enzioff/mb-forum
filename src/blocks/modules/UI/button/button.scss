@@ -1,0 +1,25 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 34px;
+
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.6px;
+  letter-spacing: 0.01em;
+  color: $white;
+
+  background-color: $red;
+  border-radius: 50px;
+
+  &--blue {
+    background-color: $blue-white;
+  }
+
+  @include r($mobile) {
+    font-size: 16px;
+    line-height: 19.2px;
+  }
+}

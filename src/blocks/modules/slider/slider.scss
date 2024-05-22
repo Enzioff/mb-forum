@@ -1,0 +1,147 @@
+.slider {
+  &--center {
+    .swiper {
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+
+      @include r($mobile) {
+        max-width: 100% !important;
+      }
+      &-active {
+        box-shadow: 0 16px 250px 0 #01142F80;
+      }
+    }
+  }
+
+  &--visible {
+    .swiper {
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      height: auto;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -1px;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90.18deg, rgba(15, 40, 75, 0) 2.83%, #0F284B 98.27%);
+        z-index: 1;
+        opacity: 0;
+        transition: .2s linear;
+
+        @include r($mobile) {
+          display: none;
+        }
+      }
+    }
+
+    .swiper-slide.swiper-slide-visible ~ div:not(.swiper-slide-visible).swiper-slide {
+      position: relative;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    @include r($mobile) {
+      display: none;
+    }
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    border: 2px solid $red;
+    background-color: $red;
+    cursor: pointer;
+
+    &__prev {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__next {
+
+    }
+
+    &-disabled {
+      background-color: transparent;
+      border-color: $white;
+    }
+
+    svg {
+      display: flex;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--animated {
+    .swiper {
+      overflow: visible;
+    }
+    .swiper-slide {
+      width: auto;
+    }
+    .swiper-wrapper {
+      transition-timing-function: linear;
+    }
+  }
+  .swiper-slide {
+    @include r($mobile) {
+      max-width: 278px;
+    }
+  }
+}
+
+.slider-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: max-content;
+
+  &-bullet {
+    display: flex;
+    width: 27px;
+    height: 5px;
+    background-color: $blue-black;
+    border-radius: 42px;
+    transition: .2s linear;
+    cursor: pointer;
+
+    &-active {
+      width: 52px;
+      background-color: $red;
+    }
+  }
+}
+
+.slider-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}

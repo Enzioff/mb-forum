@@ -1,0 +1,160 @@
+.footer {
+  position: relative;
+  display: flex;
+  padding: 30px 0;
+  background-color: #021537;
+  overflow: hidden;
+
+  @include r($mobile) {
+    padding: 45px 0 64px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 200px;
+    display: flex;
+    width: 640px;
+    height: 640px;
+    background: $red;
+    border-radius: 50%;
+    filter: blur(170px) ;
+    z-index: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -250px;
+    left: -50px;
+    display: flex;
+    width: 463px;
+    height: 463px;
+    background-color: $dark;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+  }
+
+  &__logo {
+    display: flex;
+
+    @include r($mobile) {
+      margin-bottom: 50px;
+      width: 185px;
+      height: 105px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    z-index: 1;
+
+    @include r($mobile) {
+      gap: 36px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    @include r($mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__line {
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: $black;
+    opacity: .1;
+    mix-blend-mode: multiply;
+
+    @include r($mobile) {
+      display: none;
+    }
+  }
+
+  &__address {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include r($mobile) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include r($mobile) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 50px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @include r($mobile) {
+      align-items: flex-start;
+      gap: 9px;
+      flex-direction: column;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: right;
+    color: $white;
+
+    @include r($mobile) {
+      text-align: left;
+    }
+
+    &--small {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 25.2px;
+      color: rgba($white, 0.8);
+
+      @include r($mobile) {
+        font-size: 12px;
+        line-height: 21.6px;
+      }
+    }
+
+    &--bold {
+      font-weight: 500;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    @include r($mobile) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 27px;
+    }
+  }
+}

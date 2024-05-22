@@ -1,0 +1,42 @@
+.burger {
+  position: relative;
+  width: 18px;
+  height: 8px;
+  cursor: pointer;
+
+  @include rmin($mobile + 1) {
+    display: none;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 18px;
+    height: 2px;
+    background-color: $white;
+    border-radius: 25px;
+    transition: .2s linear;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    top: 6px;
+  }
+
+  &.active {
+    &::before {
+      top: 3px;
+      transform: rotate(45deg);
+    }
+    &::after {
+      top: 3px;
+      transform: rotate(-45deg);
+    }
+  }
+}
