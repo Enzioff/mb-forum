@@ -8,3 +8,4 @@ import "./app/modal";
 import "./app/form";
 // import "./app/animation";
 import "./app/slider";
+import "./app/mask";

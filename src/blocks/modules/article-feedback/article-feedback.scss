@@ -74,11 +74,11 @@
 
     &--second {
       right: initial;
-      left: -313px;
+      left: -282px;
 
       @include r($mobile) {
         bottom: 562px;
-        left: 92px;
+        left: 96px;
       }
     }
   }

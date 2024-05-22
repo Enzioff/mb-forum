@@ -10,3 +10,20 @@
     color: $black;
     font-family: $font-main;
 }
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: $blue-white $dark;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $dark;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $blue-white;
+        border-radius: 12px;
+        border: 2px solid $dark;
+    }
+}

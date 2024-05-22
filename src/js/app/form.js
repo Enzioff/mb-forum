@@ -13,6 +13,19 @@ const initForm = () => {
   const submit = form.querySelector("button[type=\"submit\"]");
   const content = document.querySelector("[data-modal-content]");
   const accepted = form.querySelectorAll("[data-form-accept]");
+  const jurItems = form.querySelectorAll('[data-jur-item]')
+
+  els.forEach(el => {
+    const input = el.querySelector('input')
+    input.addEventListener("change", () => {
+      if (input.checked && input.hasAttribute("data-jur")) {
+        jurItems.forEach(temp => temp.style.display = 'flex')
+      }
+      if (input.checked && input.hasAttribute("data-personal")) {
+        jurItems.forEach(temp => temp.style.display = 'none')
+      }
+    });
+  });
 
   submit.setAttribute("disabled", true);
   let acceptedCount = 0;
@@ -37,6 +50,10 @@ const initForm = () => {
 
       if (attention) {
         if (input.hasAttribute("required") && input.value.length < 3) {
+          error = true;
+          attention.classList.add("active");
+          content.scrollTo({ top: attention.offsetTop, behavior: "smooth" });
+        } else if (input.value.length < 3) {
           error = true;
           attention.classList.add("active");
           content.scrollTo({ top: attention.offsetTop, behavior: "smooth" });
@@ -73,8 +90,8 @@ const initForm = () => {
       els.forEach(temp => {
         const input = temp.querySelector("input");
         if (input.type === "text" || input.type === "number" || input.type === "tel" || input.type === "email" || input.type === "date") {
-          input.value = '';
-        } else if (input.type === 'checkbox') {
+          input.value = "";
+        } else if (input.type === "checkbox") {
           input.checked = false;
         }
       });

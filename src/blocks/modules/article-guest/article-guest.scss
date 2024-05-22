@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 340px;
     margin-bottom: 18px;
     border-radius: 30px;
     overflow: hidden;
@@ -31,5 +32,16 @@
     font-weight: 400;
     line-height: 25.6px;
     color: $white;
+  }
+
+  &--no {
+    .article-guest__picture {
+      padding: 0 20px;
+      background-color: $black;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
 }

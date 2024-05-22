@@ -100,3 +100,11 @@ button {
     opacity: .5;
     pointer-events: none;
 }
+
+input[type="number"] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

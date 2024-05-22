@@ -991,6 +991,7 @@ button.swiper-pagination-bullet {
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/css/main.scss (1) ***!
   \******************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
 .pt-1 {
   padding-top: 0.0625rem;
 }
@@ -1911,6 +1912,11 @@ button {
   pointer-events: none;
 }
 
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media only screen and (max-width: 1200px) {
   .mbm-1 {
     margin-bottom: 0.0625rem;
@@ -2613,6 +2619,46 @@ button {
   left: 545px;
 }
 
+.backdrop {
+  position: relative;
+}
+.backdrop::after {
+  content: "СКОРО АНОНСИРУЕМ";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 105%;
+  height: 105%;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+@media only screen and (max-width: 1200px) {
+  .backdrop::after {
+    top: -20px;
+    left: -20px;
+    width: 100vw;
+    height: 105%;
+    padding: 0 20px;
+  }
+}
+
 .body {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2631,6 +2677,22 @@ button {
   overflow-x: hidden;
   color: #141414;
   font-family: "Golos Text", sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #80CFD4 #001437;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #001437;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #80CFD4;
+  border-radius: 12px;
+  border: 2px solid #001437;
 }
 
 .button {
@@ -3315,7 +3377,7 @@ button {
 
 .announcement {
   position: relative;
-  width: 100vw;
+  width: 150vw;
   padding: 21px 0;
   background-color: #E04E39;
   z-index: 1;
@@ -3326,15 +3388,6 @@ button {
             box-shadow: 40px 0 60px 0 rgba(1, 20, 47, 0.6980392157);
     min-width: 500px;
   }
-}
-.announcement--dark {
-  background-color: #0F284B;
-}
-.announcement--dark .announcement__item {
-  color: #E04E39;
-}
-.announcement--dark .announcement__item:not(:last-child) {
-  border-right: 3px solid #E04E39;
 }
 .announcement--shadow {
   -webkit-box-shadow: 40px 0 60px 0 rgba(1, 20, 47, 0.6980392157);
@@ -3373,6 +3426,10 @@ button {
   }
 }
 .announcement__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
@@ -3385,8 +3442,17 @@ button {
   color: #0F284B;
   white-space: nowrap;
 }
-.announcement__item:not(:last-child) {
+.announcement .swiper-slide:not(:last-child) .announcement__item {
   border-right: 3px solid #0F284B;
+}
+.announcement--dark {
+  background-color: #0F284B;
+}
+.announcement--dark .swiper-slide:not(:last-child) .announcement__item {
+  border-right: 3px solid #E04E39;
+}
+.announcement--dark .announcement__item {
+  color: #E04E39;
 }
 
 .info {
@@ -3616,6 +3682,7 @@ button {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 340px;
   margin-bottom: 18px;
   border-radius: 30px;
   overflow: hidden;
@@ -3641,6 +3708,14 @@ button {
   font-weight: 400;
   line-height: 25.6px;
   color: #FFFFFF;
+}
+.article-guest--no .article-guest__picture {
+  padding: 0 20px;
+  background-color: #141414;
+}
+.article-guest--no .article-guest__picture img {
+  width: 100%;
+  height: auto;
 }
 
 .grid {
@@ -3693,6 +3768,7 @@ button {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 340px;
   margin-bottom: 18px;
   border-radius: 30px;
   overflow: hidden;
@@ -3718,6 +3794,14 @@ button {
   font-weight: 400;
   line-height: 25.6px;
   color: #FFFFFF;
+}
+.article-guest--no .article-guest__picture {
+  padding: 0 20px;
+  background-color: #141414;
+}
+.article-guest--no .article-guest__picture img {
+  width: 100%;
+  height: auto;
 }
 
 .subtitle {
@@ -3827,6 +3911,15 @@ button {
     font-size: 14px;
     line-height: 22.4px;
   }
+}
+.article-speaker--no .article-speaker__picture {
+  padding: 0 20px;
+  background-color: #141414;
+}
+.article-speaker--no .article-speaker__picture img {
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .slider--center .swiper {
@@ -4295,10 +4388,10 @@ button {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   text-align: center;
   padding: 100px 58px 0;
   border-radius: 30px;
@@ -4580,12 +4673,12 @@ button {
 }
 .article-feedback__phone--second {
   right: initial;
-  left: -313px;
+  left: -282px;
 }
 @media only screen and (max-width: 1200px) {
   .article-feedback__phone--second {
     bottom: 562px;
-    left: 92px;
+    left: 96px;
   }
 }
 .article-feedback__wave {
@@ -4735,6 +4828,20 @@ button {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.article-partner p {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+  font-weight: 700;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  color: #80CFD4;
 }
 
 .map {

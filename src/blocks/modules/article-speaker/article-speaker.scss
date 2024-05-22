@@ -69,4 +69,15 @@
       line-height: 22.4px;
     }
   }
+
+  &--no {
+    .article-speaker__picture {
+      padding: 0 20px;
+      background-color: $black;
+      img {
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
 }

@@ -1,0 +1,28 @@
+.backdrop {
+  position: relative;
+  &::after {
+    content: 'СКОРО АНОНСИРУЕМ';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 105%;
+    height: 105%;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: $white;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+
+    @include r($mobile) {
+      top: -20px;
+      left: -20px;
+      width: 100vw;
+      height: 105%;
+      padding: 0 20px;
+    }
+  }
+}
