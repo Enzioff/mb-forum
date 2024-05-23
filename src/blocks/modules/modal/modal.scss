@@ -21,8 +21,6 @@
     padding: 50px 70px;
     border-radius: 30px;
     background-color: $blue-black;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     &::-webkit-scrollbar {
       width: 0;
@@ -161,6 +159,12 @@
     background-color: transparent !important;
     overflow-x: hidden;
     overflow-y: auto;
+    height: 100%;
+    min-height: 950px;
+
+    @include r($mobile) {
+      min-height: 1530px;
+    }
   }
 }
 .fancybox__slide {

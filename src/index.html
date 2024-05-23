@@ -154,7 +154,7 @@
           </div>
         </div>
       </section>
-      <section class="section section--blue pb-365 pbm-100" id="partners">
+      <section class="section section--blue pb-365 pbm-100">
         <div class="container">
           <div class="head mb-50">
             <div class="head__info">
@@ -429,7 +429,7 @@
               </div>
               <div class="features__item features__item--big">
                 <picture class="features__picture">
-                  <img src="./assets/images/photos/photo-4.jpg" alt="">
+                  <img src="assets/images/photos/photo-16.jpg" alt="">
                 </picture>
               </div>
               <div class="features__item">
@@ -444,7 +444,7 @@
               </div>
               <div class="features__item features__item--big">
                 <picture class="features__picture">
-                  <img src="./assets/images/photos/photo-7.jpg" alt="">
+                  <img src="assets/images/photos/photo-2.jpg" alt="">
                 </picture>
               </div>
               <div class="features__item features__item--big">
@@ -464,7 +464,7 @@
               </div>
               <div class="features__item features__item--big">
                 <picture class="features__picture">
-                  <img src="./assets/images/photos/photo-18.jpg" alt="">
+                  <img src="assets/images/photos/photo-10.jpg" alt="">
                 </picture>
               </div>
               <div class="features__item">
@@ -635,7 +635,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-2.jpg">
-                    <img src="./assets/images/photos/photo-2.jpg" alt="">
+                    <img src="assets/images/photos/photo-2.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -645,7 +645,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-4.jpg">
-                    <img src="./assets/images/photos/photo-4.jpg" alt="">
+                    <img src="assets/images/photos/photo-4.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -660,7 +660,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-7.jpg">
-                    <img src="./assets/images/photos/photo-7.jpg" alt="">
+                    <img src="assets/images/photos/photo-7.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -675,7 +675,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-10.jpg">
-                    <img src="./assets/images/photos/photo-10.jpg" alt="">
+                    <img src="assets/images/photos/photo-10.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -690,7 +690,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-13.jpg">
-                    <img src="./assets/images/photos/photo-13.jpg" alt="">
+                    <img src="assets/images/photos/photo-13.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -705,7 +705,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-16.jpg">
-                    <img src="./assets/images/photos/photo-16.jpg" alt="">
+                    <img src="assets/images/photos/photo-16.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -715,7 +715,7 @@
                 </div>
                 <div class="swiper-slide">
                   <picture class="preview-picture" data-fancybox="gallery" data-src="./assets/images/photos/photo-18.jpg">
-                    <img src="./assets/images/photos/photo-18.jpg" alt="">
+                    <img src="assets/images/photos/photo-18.jpg" alt="">
                   </picture>
                 </div>
                 <div class="swiper-slide">
@@ -816,7 +816,7 @@
               </picture>
             </article>
           </div>
-          <div class="slider slider--animated mb-20" data-slider="animated">
+          <div class="slider slider--animated mb-20" data-slider="animated" id="partners">
             <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -997,48 +997,48 @@
       </fieldset>
       <fieldset class="modal__wrapper">
         <label class="modal__item">
-          <input class="input" type="text" name="SURNAME" placeholder="Фамилия *" required>
+          <input class="input" type="text" name="SURNAME" placeholder="Фамилия *" data-validate data-text>
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="text" name="NAME" placeholder="Имя *" required>
+          <input class="input" type="text" name="NAME" placeholder="Имя *" data-validate data-text>
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="text" name="PATRONYMIC" placeholder="Отчество">
-          <span class="attention">Обязательное поле!</span>
+          <input class="input" type="text" name="PATRONYMIC" placeholder="Отчество" data-text>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item">
           <input class="input" type="text" name="DATE" placeholder="Дата рождения" data-date>
-          <span class="attention">Обязательное поле!</span>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item">
           <input class="input" type="text" name="EMAIL" placeholder="Электронная почта" data-email>
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="tel" name="TEL" placeholder="Контактный телефон">
+          <input class="input" type="tel" name="TEL" placeholder="Контактный телефон" data-phone>
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item" data-jur-item>
           <input class="input" type="text" name="COMPANY" placeholder="Название компании, ИНН или ОГРН">
-          <span class="attention">Обязательное поле!</span>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="number" name="INN" placeholder="ИНН" data-inn>
-          <span class="attention">Обязательное поле!</span>
+          <input class="input" type="text" name="INN" placeholder="ИНН" data-inn>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item" data-jur-item>
           <input class="input" type="text" name="OKVED" placeholder="ОКВЭД">
-          <span class="attention">Обязательное поле!</span>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item" data-jur-item>
           <input class="input" type="text" name="OGRN" placeholder="ОГРН">
-          <span class="attention">Обязательное поле!</span>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item" data-jur-item>
           <input class="input" type="text" name="DIRECTOR" placeholder="Руководитель">
-          <span class="attention">Обязательное поле!</span>
+          <span class="attention">Ошибка при заполнении!</span>
         </label>
       </fieldset>
       <div class="modal__list">

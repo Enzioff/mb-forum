@@ -13,16 +13,16 @@ const initForm = () => {
   const submit = form.querySelector("button[type=\"submit\"]");
   const content = document.querySelector("[data-modal-content]");
   const accepted = form.querySelectorAll("[data-form-accept]");
-  const jurItems = form.querySelectorAll('[data-jur-item]')
+  const jurItems = form.querySelectorAll("[data-jur-item]");
 
   els.forEach(el => {
-    const input = el.querySelector('input')
+    const input = el.querySelector("input");
     input.addEventListener("change", () => {
       if (input.checked && input.hasAttribute("data-jur")) {
-        jurItems.forEach(temp => temp.style.display = 'flex')
+        jurItems.forEach(temp => temp.style.display = "flex");
       }
       if (input.checked && input.hasAttribute("data-personal")) {
-        jurItems.forEach(temp => temp.style.display = 'none')
+        jurItems.forEach(temp => temp.style.display = "none");
       }
     });
   });
@@ -41,35 +41,70 @@ const initForm = () => {
     });
   });
 
+  form.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    return false;
+  });
+
   submit.addEventListener("click", (evt) => {
     let error = false;
 
-    els.forEach(el => {
+    const formItems = form.querySelectorAll('.modal__item')
+
+    formItems.forEach(el => {
       const attention = el.querySelector(".attention");
       const input = el.querySelector("input");
+      const regexp = /^[a-zA-Z0-9а-яА-Я._%+-]+@[a-zA-Z0-9а-яА-Я.-]+\.[a-zA-Zа-яА-Я]{2,}$/;
 
-      if (attention) {
-        if (input.hasAttribute("required") && input.value.length < 3) {
-          error = true;
-          attention.classList.add("active");
-          content.scrollTo({ top: attention.offsetTop, behavior: "smooth" });
-        } else if (input.value.length < 3) {
-          error = true;
-          attention.classList.add("active");
-          content.scrollTo({ top: attention.offsetTop, behavior: "smooth" });
-        } else {
-          attention.classList.remove("active");
-        }
+      if (input.value.length >= 1 && input.value.length <= 3) {
+        error = true;
+        attention.classList.add("active");
+      } else if (input.value !== '' && input.value.length > 3) {
+        attention.classList.remove("active");
+      }
+
+      if (input.value.length > 1 && input.value.includes("_")) {
+        error = true;
+        attention.classList.add("active");
+      } else if (input.value !== '') {
+        attention.classList.remove("active");
+      }
+
+      if (input.hasAttribute("data-validate") && input.value.length < 3) {
+        error = true;
+        attention.classList.add("active");
+      }
+
+      if (input.hasAttribute("data-email") && !regexp.test(input.value)) {
+        error = true;
+        attention.classList.add("active");
+      }
+
+      if (input.hasAttribute('data-phone') && input.value.includes("_") || input.hasAttribute('data-phone') && input.value === '') {
+        error = true;
+        attention.classList.add("active");
+      }
+
+      if (input.hasAttribute('data-inn') && input.value.includes("_")) {
+        error = true;
+        attention.classList.add("active");
+      } else if (input.hasAttribute('data-inn') && input.value === "") {
+        attention.classList.remove("active");
+      }
+
+      if (!error) {
+        attention.classList.remove("active");
       }
     });
 
+    console.log(error)
     if (!error) {
       submitForm();
     }
   });
 
   const submitForm = () => {
-    form.removeEventListener("submit", handleSubmit); // Удаляем обработчик submit перед добавлением нового
+    form.removeEventListener("submit", handleSubmit);
     form.addEventListener("submit", handleSubmit);
   };
 
@@ -98,7 +133,9 @@ const initForm = () => {
       accepted.forEach(el => {
         el.checked = false;
       });
+      acceptedCount = 0;
       submit.setAttribute("disabled", true);
+      form.removeEventListener("submit", handleSubmit);
     };
 
     axios.post(url, data)
