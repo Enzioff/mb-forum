@@ -8,16 +8,16 @@ export const initGuestAnimation = () => {
 
 
 const animationIn = () => {
-  gsap.registerPlugin(ScrollTrigger, TextPlugin);
-  let guests = gsap.utils.toArray('.article-guest');
-  gsap.to('.section--blue', {
-    xPercent: -100,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.section--blue',
-      pin: true,
-      scrub: 1,
-      end: () => `+=${document.querySelector('.grid--line').offsetWidth}`
-    }
-  })
+  // gsap.registerPlugin(ScrollTrigger, TextPlugin);
+  // let guests = gsap.utils.toArray('.article-guest');
+  // gsap.to('.section--blue', {
+  //   xPercent: -100,
+  //   ease: 'none',
+  //   scrollTrigger: {
+  //     trigger: '.section--blue',
+  //     pin: true,
+  //     scrub: 1,
+  //     end: () => `+=${document.querySelector('.grid--line').offsetWidth}`
+  //   }
+  // })
 };

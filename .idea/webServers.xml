@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6684a792-04f8-4208-8479-2e4db771198e" name="MbForum" url="http://lite-host.in">
+        <fileTransfer rootFolder="/var/www/u1229688/data/www/enzioff-forum.dieztech.ru" accessType="SFTP" host="pluton.lite-host.in" port="22" sshConfigId="16e54ca2-6834-42cc-b1e2-7b808f18d236" sshConfig="u1229688@pluton.lite-host.in:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
