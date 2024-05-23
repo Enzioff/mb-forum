@@ -32,12 +32,10 @@
     background-color: #CBECEE;
 
     &--bg {
-      background-image:
-              url("../assets/images/icon-separator.svg"),
-              url("../assets/images/waves/wave-transparent-1.svg");
-      background-repeat: repeat-x, no-repeat;
-      background-size: auto, auto, auto;
-      background-position: center bottom, center right;
+      background-image:url("../assets/images/waves/wave-transparent-1.svg");
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: center right;
 
       @include r($mobile) {
         background-image: url("../assets/images/icon-separator.svg");
@@ -49,14 +47,13 @@
     padding-top: 100px;
     margin-top: -100px;
     background-color: $blue;
-    background-image: url("../assets/images/icon-separator-dark.svg"),
-    url("../assets/images/icon-animal-1.svg"),
+    background-image: url("../assets/images/icon-animal-1.svg"),
     url("../assets/images/icon-animal-2.svg"),
     url("../assets/images/waves/wave-transparent-3.svg"),
     url("../assets/images/waves/wave-transparent-2.svg");
-    background-repeat: repeat-x, no-repeat, no-repeat, no-repeat, no-repeat;
-    background-size: auto, auto, auto, auto, auto;
-    background-position: center bottom -1px, top right 50px, left top 340px, left bottom 140px, right bottom 240px;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+    background-size: auto, auto, auto, auto;
+    background-position: top right 50px, left top 340px, left bottom 140px, right bottom 240px;
 
     @include r($mobile) {
       background-image: url("../assets/images/icon-separator-dark.svg"),
@@ -84,15 +81,13 @@
 
   &--black {
     background-color: #051E41;
-    background-image: url("../assets/images/icon-separator-black.svg"),
-    url("../assets/images/icon-animal-3.svg"),
+    background-image: url("../assets/images/icon-animal-3.svg"),
     url("../assets/images/icon-animal-4.svg"),
     url("../assets/images/icon-animal-5.svg"),
     url("../assets/images/icon-animal-6.svg");
-    background-repeat: repeat-x, no-repeat,no-repeat,no-repeat,no-repeat;
-    background-size: auto, auto, auto, auto, auto;
-    background-position: center bottom -1px,
-    right top 820px,
+    background-repeat: no-repeat,no-repeat,no-repeat,no-repeat;
+    background-size: auto, auto, auto, auto;
+    background-position:right top 820px,
     left 150px top 900px,
     left 150px bottom 620px,
     right 140px bottom 720px;
@@ -123,7 +118,7 @@
 }
 
 .section-separator {
-  display: none;
+  display: flex;
   width: 100vw;
   height: 100vh;
 

@@ -63,6 +63,11 @@ module.exports = {
                     to: "./assets/fonts/",
                     noErrorOnMissing: true
                 },
+                {
+                    from: "src/assets",
+                    to: "./assets",
+                    noErrorOnMissing: true
+                },
             ],
         }),
         new SpriteLoaderPlugin()

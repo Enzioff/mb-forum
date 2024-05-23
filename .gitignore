@@ -105,3 +105,6 @@ typings/
 .npmrc
 
 backup
+
+src/assets/video/preview.mp4
+dist/assets/video/preview.mp4

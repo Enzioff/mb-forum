@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
 export const initIntroAnimation = () => {
   animationIn();
@@ -8,7 +8,7 @@ export const initIntroAnimation = () => {
 
 
 const animationIn = () => {
-  gsap.registerPlugin(ScrollTrigger, TextPlugin);
+  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
   const tl = gsap.timeline();
 
@@ -24,7 +24,7 @@ const animationIn = () => {
       y: 100,
       opacity: 0,
       duration: 1,
-      ease: "back"
+      ease: "back",
     }, "-=2")
     .from(".preview", {
       yPercent: 120,

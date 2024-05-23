@@ -8,6 +8,10 @@ import { initIntroAnimation } from "../animations/intro";
 import { initInfoAnimation } from "../animations/info";
 import { initGuestAnimation } from "../animations/guest";
 import { initAboutAnimation } from "../animations/about";
+import { initTitlesAnimation } from "../animations/titles";
+import { initVideoAnimation } from "../animations/video";
+import { initFeedbackAnimation } from "../animations/feedback";
+import { initWaveAnimation } from "../animations/wave";
 
 document.addEventListener("DOMContentLoaded", () => {
   initAnimations();
@@ -21,6 +25,10 @@ const initAnimations = () => {
   initGuestAnimation();
   initFeaturesAnimation();
   initAboutAnimation();
+  initTitlesAnimation();
+  initVideoAnimation();
+  initFeedbackAnimation()
+  initWaveAnimation()
 };
 
 const initSmoothScroll = () => {

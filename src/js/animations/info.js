@@ -90,4 +90,6 @@ const animationInfoIn = () => {
     end: "200%",
     scrub: 1,
   });
+
+
 };
