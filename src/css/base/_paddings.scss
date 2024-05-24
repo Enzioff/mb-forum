@@ -139,6 +139,11 @@
             padding-top: rem(100);
         }
     }
+    &-135 {
+        @include r(1200) {
+            padding-top: rem(135);
+        }
+    }
 }
 
 

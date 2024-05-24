@@ -11,6 +11,11 @@
     width: 58px;
     height: 58px;
     border-radius: 50%;
+    transition: .2s linear;
+
+    &:hover {
+      opacity: .7;
+    }
 
     &--whatsapp {
       background: linear-gradient(136.74deg, #85E88E 0%, #3ADC49 97.15%);

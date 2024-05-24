@@ -95,6 +95,10 @@ const initForm = () => {
       if (!error) {
         attention.classList.remove("active");
       }
+
+      setTimeout(() => {
+        attention.classList.remove("active");
+      }, 3000)
     });
 
     console.log(error)
@@ -141,11 +145,33 @@ const initForm = () => {
     axios.post(url, data)
       .then(response => response.data)
       .then(data => {
+        const modalAccept = document.querySelector('.modal--accept');
+        const title = modalAccept.querySelector('[data-modal-title]')
+        const text = modalAccept.querySelector('[data-modal-text]')
+        const button = modalAccept.querySelector('[data-modal-close]')
+        title.textContent = 'вы успешно прошли регистрацию!'
+        text.textContent = 'Ждём Вас на форуме!'
+        button.textContent = 'Отлично!'
         resetForm();
+        Fancybox.show([{
+          src: '#accept',
+          type: 'inline',
+        }])
       })
       .catch(error => {
         console.error(error);
+        const modalAccept = document.querySelector('.modal--accept');
+        const title = modalAccept.querySelector('[data-modal-title]')
+        const text = modalAccept.querySelector('[data-modal-text]')
+        const button = modalAccept.querySelector('[data-modal-close]')
+        title.textContent = 'Ошибка!'
+        text.textContent = error.message
+        button.textContent = 'Закрыть'
         resetForm();
+        Fancybox.show([{
+          src: '#accept',
+          type: 'inline',
+        }])
       });
   };
 };

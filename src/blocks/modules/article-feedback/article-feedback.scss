@@ -68,8 +68,7 @@
     @include r($mobile) {
       right: -37px;
       bottom: -78px;
-      width: 282px;
-      height: 495px;
+      width: 222px;
     }
 
     &--second {
@@ -77,8 +76,8 @@
       left: -282px;
 
       @include r($mobile) {
-        bottom: 562px;
-        left: 96px;
+        bottom: 542px;
+        left: 156px;
       }
     }
   }

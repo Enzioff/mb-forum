@@ -28,4 +28,28 @@
   &--blue {
     color: $blue-white;
   }
+
+  &--red {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 34.75px;
+    text-align: center;
+    color: $red;
+
+    @include r($mobile) {
+      margin-bottom: 7px !important;
+      font-size: 18px !important;
+      line-height: 26.06px !important;
+      text-align: center;
+    }
+  }
+
+  &--policy {
+    @include r($mobile) {
+      font-size: 25px;
+      font-weight: 800;
+      line-height: 36px;
+      text-align: left;
+    }
+  }
 }

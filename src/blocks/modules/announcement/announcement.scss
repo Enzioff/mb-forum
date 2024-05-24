@@ -21,7 +21,7 @@
   }
 
   &--rotate-negative {
-    transform: rotate(5deg) translate(-20px, 60px);
+    transform: rotate(5deg) translate(-20px, 20px);
 
     @include r($mobile) {
     transform: rotate(5deg) translate(-20px, 10px);
@@ -29,7 +29,7 @@
   }
 
   &--rotate-positive {
-    transform: rotate(-2deg) translate(-20px, -60px);
+    transform: rotate(-2deg) translate(-20px, -80px);
 
     @include r($mobile) {
     transform: rotate(-2deg) translate(-20px, -10px);
@@ -58,6 +58,12 @@
     }
     .announcement__item {
       color: $red;
+    }
+  }
+
+  .swiper-slide {
+    @include r($mobile) {
+      max-width: 100% !important;
     }
   }
 }

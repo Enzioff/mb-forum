@@ -39,4 +39,11 @@
       transform: rotate(-45deg);
     }
   }
+
+  &--dark {
+    &::before,
+    &::after {
+      background-color: $blue-black;
+    }
+  }
 }

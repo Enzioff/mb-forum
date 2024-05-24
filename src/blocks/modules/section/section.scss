@@ -36,10 +36,6 @@
       background-repeat: no-repeat;
       background-size: auto;
       background-position: center right;
-
-      @include r($mobile) {
-        background-image: url("../assets/images/icon-separator.svg");
-      }
     }
   }
 
@@ -56,11 +52,10 @@
     background-position: top right 50px, left top 340px, left bottom 140px, right bottom 240px;
 
     @include r($mobile) {
-      background-image: url("../assets/images/icon-separator-dark.svg"),
-      url("../assets/images/icon-animal-1.svg"),
+      background-image:url("../assets/images/icon-animal-1.svg"),
       url("../assets/images/icon-animal-9.svg");
-      background-size: auto, 265px, auto;
-      background-position: center bottom -1px, top right -40px, left top 500px;
+      background-size: 265px, auto;
+      background-position: top right -40px, left top 500px;
     }
   }
 
@@ -73,9 +68,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center bottom;
-      z-index: 2;
-      @include r($mobile) {
-      }
     }
   }
 
@@ -94,10 +86,9 @@
     z-index: 1;
 
     @include r($mobile) {
-      background-image: url("../assets/images/icon-separator-black.svg"),
-      url("../assets/images/icon-animal-3.svg"),
+      background-image: url("../assets/images/icon-animal-3.svg"),
       url("../assets/images/icon-animal-4.svg");
-      background-position: center bottom -1px, right -100px top 436px, left -62px top 1369px;
+      background-position: right -100px top 436px, left -62px top 1369px;
     }
   }
 

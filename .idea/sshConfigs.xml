@@ -3,6 +3,7 @@
   <component name="SshConfigs">
     <configs>
       <sshConfig authType="PASSWORD" host="pluton.lite-host.in" id="16e54ca2-6834-42cc-b1e2-7b808f18d236" port="22" nameFormat="DESCRIPTIVE" username="u1229688" useOpenSSHConfig="true" />
+      <sshConfig authType="PASSWORD" host="176.112.220.30" id="4343d51a-b9ef-4798-9ec3-156f567f23b5" port="22" nameFormat="DESCRIPTIVE" username="root" useOpenSSHConfig="true" />
     </configs>
   </component>
 </project>

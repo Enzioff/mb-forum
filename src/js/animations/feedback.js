@@ -11,32 +11,35 @@ const animationIn = () => {
 
   const tl = gsap.timeline();
 
-  tl.from(".article-feedback", {
-    duration: 1,
-    stagger: 0.4,
-    opacity: 0
-  })
-    .from(".article-feedback__phone", {
-      scale: 0.2,
-      y: 120,
-      x: -300,
-      rotationY: 130,
+  if (document.querySelector(".article-feedback")) {
+    tl.from(".article-feedback", {
       duration: 1,
+      stagger: 0.4,
+      opacity: 0
+    })
+      .from(".article-feedback__phone", {
+        scale: 0.2,
+        y: 120,
+        x: -300,
+        rotationY: 130,
+        duration: 1,
+        ease: "back"
+      }, "-=1");
+
+    ScrollTrigger.create({
+      trigger: ".section--darken",
+      start: "top center",
+      animation: tl
+    });
+  }
+  if (document.querySelector(".article-feedback__button")) {
+    gsap.from(".article-feedback__button", {
+      scrollTrigger: ".section--darken",
+      y: -100,
+      duration: 0.7,
+      delay: 1.2,
+      opacity: 0,
       ease: "back"
-    }, '-=1');
-
-  gsap.from(".article-feedback__button", {
-    scrollTrigger: '.section--darken',
-    y: -100,
-    duration: 0.7,
-    delay: 1.2,
-    opacity: 0,
-    ease: 'back',
-  });
-
-  ScrollTrigger.create({
-    trigger: ".section--darken",
-    start: "top center",
-    animation: tl
-  });
+    });
+  }
 };

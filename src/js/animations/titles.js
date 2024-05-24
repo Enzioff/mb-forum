@@ -10,25 +10,25 @@ export const initTitlesAnimation = () => {
 const animationIn = () => {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
-  const titles = document.querySelectorAll('.title');
-
+  const titles = document.querySelectorAll(".title");
+  if (!titles) return;
   titles.forEach(title => {
-    const text = new SplitText(title)
+    const text = new SplitText(title);
 
     gsap.from(text.chars, {
       scrollTrigger: {
         trigger: title,
-        start: 'top center'
+        start: "top center"
       },
       y: -50,
       rotation: -90,
       opacity: 0,
       stagger: 0.05,
       duration: 0.4,
-      ease: 'back',
+      ease: "back",
       onComplete: () => {
-        text.revert()
+        text.revert();
       }
-    })
-  })
+    });
+  });
 };
