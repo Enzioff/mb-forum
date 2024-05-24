@@ -19,6 +19,14 @@
 </head>
 
 <body class="body">
+<div class="notification" data-notification>
+  <p class="notification__text">
+    Листай дальше!
+  </p>
+  <svg class="notification__icon">
+    <use xlink:href="./assets/sprite/sprite.svg#icon-arrow-right"></use>
+  </svg>
+</div>
 <div id="smooth-wrapper">
   <div id="smooth-content">
     <header class="header">
@@ -32,7 +40,26 @@
             <a href="#footer" class="nav__link">Контакты</a>
           </nav>
           <button class="button" data-fancybox data-src="#registration">Регистрация</button>
-          <div class="burger"></div>
+          <div class="burger" data-burger></div>
+        </div>
+      </div>
+      <div class="mobile-menu" data-mobile-menu>
+        <div class="mobile-menu__close" data-mobile-close>
+          <svg>
+            <use xlink:href="./assets/sprite/sprite.svg#icon-cross"></use>
+          </svg>
+        </div>
+        <div class="container">
+          <div class="mobile-menu__wrapper">
+            <nav class="nav">
+              <a href="#about" class="nav__link">О форуме</a>
+              <a href="#program" class="nav__link">Программа</a>
+              <a href="#speakers" class="nav__link">Спикеры</a>
+              <a href="#partners" class="nav__link">Организаторы и партнёры</a>
+              <a href="#footer" class="nav__link">Контакты</a>
+            </nav>
+            <button class="button" data-fancybox data-src="#registration">Регистрация</button>
+          </div>
         </div>
       </div>
     </header>
@@ -1286,6 +1313,12 @@
               <a href="https://vk.com/mbkaliningrad39" class="footer__text footer__text--bold">вконтакте</a>
             </div>
           </div>
+          <div class="developer">
+            <a href="https://diez.io/" class="developer__text">
+              Разработано -
+              <img src="./assets/images/logo-dnt.svg" alt="">
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -1300,7 +1333,7 @@
       </svg>
     </button>
     <h3 class="modal__title title title--blue">Регистрация</h3>
-    <form action="#" class="modal__form" data-form>
+    <form action="/back/form.php" class="modal__form" data-form>
       <fieldset class="modal__wrapper modal__wrapper--line">
         <label class="modal__label">
           <input class="radio" type="radio" name="USER_TYPE" value="JURIDICAL" checked data-jur>

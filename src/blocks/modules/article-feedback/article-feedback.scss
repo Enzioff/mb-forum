@@ -77,7 +77,8 @@
 
       @include r($mobile) {
         bottom: 542px;
-        left: 156px;
+        right: -37px;
+        left: inherit;
       }
     }
   }

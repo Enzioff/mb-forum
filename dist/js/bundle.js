@@ -23049,65 +23049,67 @@ const initWaveAnimation = () => {
 
 const animationIn = () => {
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia()
+  mm.add('(min-width: 1201px)', () => {
+    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
+    const tl2 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
+    const tl3 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
+    const tl4 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
+    const wave1 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-1");
+    const wave2 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-2");
+    const wave3 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-3");
+    const wave4 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-4");
+    const wave5 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-5");
+    const wave6 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-6");
+    const wave7 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-7");
+    const wave8 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-8");
 
-  const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-  const tl2 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-  const tl3 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-  const tl4 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-  const wave1 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-1");
-  const wave2 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-2");
-  const wave3 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-3");
-  const wave4 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-4");
-  const wave5 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-5");
-  const wave6 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-6");
-  const wave7 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-7");
-  const wave8 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-8");
+    if (!wave1) return
 
-  if (!wave1) return
-
-  tl.to(".wave", {
-    duration: 2,
-    morphSVG: wave1,
-    ease: "none"
-  })
-    .to(".wave", {
+    tl.to(".wave", {
       duration: 2,
-      morphSVG: wave2,
+      morphSVG: wave1,
       ease: "none"
-    });
+    })
+      .to(".wave", {
+        duration: 2,
+        morphSVG: wave2,
+        ease: "none"
+      });
 
-  tl2.to(".wave2", {
-    duration: 2,
-    morphSVG: wave3,
-    ease: "none"
-  })
-    .to(".wave2", {
+    tl2.to(".wave2", {
       duration: 2,
-      morphSVG: wave4,
+      morphSVG: wave3,
       ease: "none"
-    });
+    })
+      .to(".wave2", {
+        duration: 2,
+        morphSVG: wave4,
+        ease: "none"
+      });
 
-  tl3.to(".wave3", {
-    duration: 2,
-    morphSVG: wave5,
-    ease: "none"
-  })
-    .to(".wave3", {
+    tl3.to(".wave3", {
       duration: 2,
-      morphSVG: wave6,
+      morphSVG: wave5,
       ease: "none"
-    });
+    })
+      .to(".wave3", {
+        duration: 2,
+        morphSVG: wave6,
+        ease: "none"
+      });
 
-  tl4.to(".wave4", {
-    duration: 2,
-    morphSVG: wave7,
-    ease: "none"
-  })
-    .to(".wave4", {
+    tl4.to(".wave4", {
       duration: 2,
-      morphSVG: wave8,
+      morphSVG: wave7,
       ease: "none"
-    });
+    })
+      .to(".wave4", {
+        duration: 2,
+        morphSVG: wave8,
+        ease: "none"
+      });
+  })
 };
 
 /***/ }),
@@ -23432,6 +23434,39 @@ const initMask = () => {
 
 /***/ }),
 
+/***/ "./src/js/app/mobileMenu.js":
+/*!**********************************!*\
+  !*** ./src/js/app/mobileMenu.js ***!
+  \**********************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', () => {
+  initMobileMenu()
+})
+
+const initMobileMenu = () => {
+  const burger = document.querySelector('[data-burger]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  const menuClose = menu.querySelector('[data-mobile-close]');
+  const menuLinks = menu.querySelectorAll('.nav__link')
+
+  burger.addEventListener('click', () => {
+    menu.classList.add('active')
+  })
+
+  menuClose.addEventListener('click', () => {
+    menu.classList.remove('active')
+  })
+
+  menuLinks.forEach(el => {
+    el.addEventListener('click', () => {
+      menu.classList.remove('active')
+    })
+  })
+}
+
+/***/ }),
+
 /***/ "./src/js/app/modal.js":
 /*!*****************************!*\
   !*** ./src/js/app/modal.js ***!
@@ -23467,6 +23502,36 @@ const initModal = () => {
     });
   });
 };
+
+/***/ }),
+
+/***/ "./src/js/app/scroll.js":
+/*!******************************!*\
+  !*** ./src/js/app/scroll.js ***!
+  \******************************/
+/***/ (function() {
+
+document.addEventListener('DOMContentLoaded', () => {
+  initScroll()
+})
+
+const initScroll = () => {
+  const notification = document.querySelector('[data-notification]')
+
+  if (!notification) return;
+
+  let isScrolling;
+
+  window.addEventListener('scroll', function() {
+    window.clearTimeout(isScrolling);
+
+    notification.classList.remove('active');
+
+    isScrolling = setTimeout(function() {
+      notification.classList.add('active');
+    }, 200);
+  });
+}
 
 /***/ }),
 
@@ -36641,6 +36706,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_animation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app/animation */ "./src/js/app/animation.js");
 /* harmony import */ var _app_slider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app/slider */ "./src/js/app/slider.js");
 /* harmony import */ var _app_mask__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app/mask */ "./src/js/app/mask.js");
+/* harmony import */ var _app_mobileMenu__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app/mobileMenu */ "./src/js/app/mobileMenu.js");
+/* harmony import */ var _app_mobileMenu__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_app_mobileMenu__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _app_scroll__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app/scroll */ "./src/js/app/scroll.js");
+/* harmony import */ var _app_scroll__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_app_scroll__WEBPACK_IMPORTED_MODULE_11__);
+
+
 
 
 

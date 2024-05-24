@@ -9,3 +9,5 @@ import "./app/form";
 import "./app/animation";
 import "./app/slider";
 import "./app/mask";
+import "./app/mobileMenu";
+import "./app/scroll";

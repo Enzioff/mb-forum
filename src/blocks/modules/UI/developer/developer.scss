@@ -1,0 +1,13 @@
+.developer {
+  margin-left: auto;
+  @include r($mobile) {
+    margin-left: 0;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: $white;
+  }
+}

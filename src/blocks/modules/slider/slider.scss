@@ -124,6 +124,10 @@
   gap: 6px;
   width: max-content;
 
+  @include r($mobile) {
+    display: none;
+  }
+
   &-bullet {
     display: flex;
     width: 27px;
