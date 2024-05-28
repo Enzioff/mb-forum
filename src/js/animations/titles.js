@@ -18,7 +18,7 @@ const animationIn = () => {
     gsap.from(text.chars, {
       scrollTrigger: {
         trigger: title,
-        start: "top center"
+        start: "100% bottom"
       },
       y: -50,
       rotation: -90,

@@ -1,0 +1,20 @@
+.program {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+
+  @include r($mobile) {
+    gap: 60px;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include r($mobile) {
+      margin-bottom: 30px;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 36px;
+    }
+  }
+}

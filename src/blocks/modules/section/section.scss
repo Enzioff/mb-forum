@@ -22,6 +22,7 @@
     height: 100vh;
     max-height: 970px;
     background-color: $light;
+    overflow: hidden;
 
     .container {
       height: 100%;
@@ -30,6 +31,15 @@
 
   &--light {
     background-color: #CBECEE;
+    overflow: hidden;
+
+    //.separator {
+    //  opacity: 0;
+    //
+    //  &.visible {
+    //    opacity: 1;
+    //  }
+    //}
 
     &--bg {
       background-image:url("../assets/images/waves/wave-transparent-1.svg");
@@ -106,14 +116,11 @@
       background-image: none;
     }
   }
-}
 
-.section-separator {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-
-  &--light {
-    background-color: #CBECEE;
+  &--program {
+    background-image: url("../assets/images/program-bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }

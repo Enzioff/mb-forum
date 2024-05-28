@@ -34,9 +34,13 @@ const initAnimations = () => {
 const initSmoothScroll = () => {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-  ScrollSmoother.create({
-    smooth: 1,
-    effects: true,
-    smoothTouch: 0.1
-  });
+  const mm = gsap.matchMedia();
+
+  mm.add('(min-width: 1200px)', () => {
+    ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      smoothTouch: 0.1
+    });
+  })
 };

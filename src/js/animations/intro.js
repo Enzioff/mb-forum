@@ -10,6 +10,8 @@ export const initIntroAnimation = () => {
 const animationIn = () => {
   gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
+  const mm = gsap.matchMedia()
+
   const tl = gsap.timeline();
   if (document.querySelector(".intro__item")) {
     tl.from(".intro__item", {
@@ -38,11 +40,17 @@ const animationIn = () => {
         repeat: -1,
         ease: "elastic"
       });
-
-    ScrollTrigger.create({
-      trigger: ".section--full",
-      pin: ".section--full",
-      pinSpacing: false
-    });
+    mm.add('(min-width: 1201px)', () => {
+      ScrollTrigger.create({
+        trigger: ".section--full",
+        pin: ".section--full",
+        pinSpacing: false
+      });
+    })
+      .add('(max-width: 1200px)', () => {
+        ScrollTrigger.create({
+          trigger: ".section--full",
+        });
+      })
   }
 };

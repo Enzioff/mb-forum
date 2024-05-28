@@ -1,0 +1,96 @@
+<div class="modal" data-modal id="registration">
+  <div class="modal__content" data-modal-content>
+    <button class="modal__close" data-modal-close>
+      <svg class="modal__icon">
+        <use xlink:href="./assets/sprite/sprite.svg#icon-cross"></use>
+      </svg>
+    </button>
+    <h3 class="modal__title title title--blue">Регистрация</h3>
+    <form action="/back/form.php" class="modal__form" data-form>
+      <fieldset class="modal__wrapper modal__wrapper--line">
+        <label class="modal__label">
+          <input class="radio" type="radio" name="USER_TYPE" value="JURIDICAL" checked data-jur>
+          <span>ЮР лицо или ИП</span>
+        </label>
+        <label class="modal__label">
+          <input class="radio" type="radio" name="USER_TYPE" value="PERSONAL" data-personal>
+          <span>Физическое лицо, желающее начать собственное дело</span>
+        </label>
+      </fieldset>
+      <fieldset class="modal__wrapper">
+        <label class="modal__item">
+          <input class="input" type="text" name="SURNAME" placeholder="Фамилия *" data-validate data-text>
+          <span class="attention">Обязательное поле!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="text" name="NAME" placeholder="Имя *" data-validate data-text>
+          <span class="attention">Обязательное поле!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="text" name="PATRONYMIC" placeholder="Отчество" data-text>
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="text" name="DATE" placeholder="Дата рождения" data-date>
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="text" name="EMAIL" placeholder="Электронная почта" data-email>
+          <span class="attention">Обязательное поле!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="tel" name="TEL" placeholder="Контактный телефон" data-phone>
+          <span class="attention">Обязательное поле!</span>
+        </label>
+        <label class="modal__item" data-jur-item>
+          <input class="input" type="text" name="COMPANY" placeholder="Название компании">
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item">
+          <input class="input" type="text" name="INN" placeholder="ИНН" data-inn>
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item" data-jur-item>
+          <input class="input" type="number" name="OKVED" placeholder="ОКВЭД">
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item" data-jur-item>
+          <input class="input" type="number" name="OGRN" placeholder="ОГРН">
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+        <label class="modal__item" data-jur-item>
+          <input class="input" type="text" name="DIRECTOR" placeholder="Руководитель">
+          <span class="attention">Ошибка при заполнении!</span>
+        </label>
+      </fieldset>
+      <div class="modal__list">
+        <label class="modal__label">
+          <input class="checkbox" type="checkbox" data-form-accept>
+          <span>Я соглашаюсь с условиями и даю согласие на обработку <a href="#">персональных данных</a></span>
+        </label>
+        <label class="modal__label">
+          <input class="checkbox" type="checkbox" data-form-accept>
+          <span>Согласие с <a href="./pages/policy.html">политикой конфиденциальности</a></span>
+        </label>
+      </div>
+      <button type="submit" class="button">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
+<div class="modal modal--accept" data-modal id="accept">
+  <div class="modal__content" data-modal-content>
+    <div class="modal__inner">
+      <h3 class="modal__title title title--red" data-modal-title>вы успешно прошли регистрацию!</h3>
+      <p class="modal__text" data-modal-text>Ждём Вас на форуме!</p>
+      <button class="button" data-modal-close>Отлично!</button>
+    </div>
+    <div class="modal__decor modal__decor--top">
+      <img src="./assets/images/drops/drop-1.png" alt="">
+      <img class="modal__backdrop" src="./assets/images/drops/drop-1.png" alt="">
+    </div>
+    <div class="modal__decor modal__decor--bottom">
+      <img src="./assets/images/drops/drop-2.png" alt="">
+      <img class="modal__backdrop" src="./assets/images/drops/drop-2.png" alt="">
+    </div>
+  </div>
+</div>

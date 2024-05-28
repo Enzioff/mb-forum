@@ -9,13 +9,19 @@ const initScroll = () => {
 
   let isScrolling;
 
-  window.addEventListener('scroll', function() {
-    window.clearTimeout(isScrolling);
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
 
+  window.addEventListener('scroll', function() {
+    const topPosition = window.pageYOffset;
+
+    window.clearTimeout(isScrolling);
     notification.classList.remove('active');
 
-    isScrolling = setTimeout(function() {
-      notification.classList.add('active');
-    }, 200);
+    if (topPosition >= 200 && topPosition + windowHeight < documentHeight - 200) {
+      isScrolling = setTimeout(function() {
+        notification.classList.add('active');
+      }, 400);
+    }
   });
 }

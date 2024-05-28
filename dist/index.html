@@ -3,19 +3,19 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+<link rel="manifest" href="./assets/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <title>Море бизнеса</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
-  <link rel="manifest" href="./assets/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#ffffff">
 <link href="./css/main.css" rel="stylesheet"></head>
 
 <body class="body">
@@ -30,39 +30,39 @@
 <div id="smooth-wrapper">
   <div id="smooth-content">
     <header class="header">
-      <div class="container">
-        <div class="header__wrapper">
-          <nav class="nav mob-hidden">
-            <a href="#about" class="nav__link">О форуме</a>
-            <a href="#program" class="nav__link">Программа</a>
-            <a href="#speakers" class="nav__link">Спикеры</a>
-            <a href="#partners" class="nav__link">Организаторы и партнёры</a>
-            <a href="#footer" class="nav__link">Контакты</a>
-          </nav>
-          <button class="button" data-fancybox data-src="#registration">Регистрация</button>
-          <div class="burger" data-burger></div>
-        </div>
+  <div class="container">
+    <div class="header__wrapper">
+      <nav class="nav mob-hidden">
+        <a href="#about" class="nav__link">О форуме</a>
+        <a href="#program" class="nav__link">Программа</a>
+        <a href="#speakers" class="nav__link">Спикеры</a>
+        <a href="#partners" class="nav__link">Организаторы и партнёры</a>
+        <a href="#footer" class="nav__link">Контакты</a>
+      </nav>
+      <button class="button" data-fancybox data-src="#registration">Регистрация</button>
+      <div class="burger" data-burger></div>
+    </div>
+  </div>
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu__close" data-mobile-close>
+      <svg>
+        <use xlink:href="./assets/sprite/sprite.svg#icon-cross"></use>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="mobile-menu__wrapper">
+        <nav class="nav">
+          <a href="#about" class="nav__link">О форуме</a>
+          <a href="#program" class="nav__link">Программа</a>
+          <a href="#speakers" class="nav__link">Спикеры</a>
+          <a href="#partners" class="nav__link">Организаторы и партнёры</a>
+          <a href="#footer" class="nav__link">Контакты</a>
+        </nav>
+        <button class="button" data-fancybox data-src="#registration">Регистрация</button>
       </div>
-      <div class="mobile-menu" data-mobile-menu>
-        <div class="mobile-menu__close" data-mobile-close>
-          <svg>
-            <use xlink:href="./assets/sprite/sprite.svg#icon-cross"></use>
-          </svg>
-        </div>
-        <div class="container">
-          <div class="mobile-menu__wrapper">
-            <nav class="nav">
-              <a href="#about" class="nav__link">О форуме</a>
-              <a href="#program" class="nav__link">Программа</a>
-              <a href="#speakers" class="nav__link">Спикеры</a>
-              <a href="#partners" class="nav__link">Организаторы и партнёры</a>
-              <a href="#footer" class="nav__link">Контакты</a>
-            </nav>
-            <button class="button" data-fancybox data-src="#registration">Регистрация</button>
-          </div>
-        </div>
-      </div>
-    </header>
+    </div>
+  </div>
+</header>
     <main class="main">
       <section class="section section--backdrop section--full">
         <video class="video" autoplay loop muted width="250">
@@ -134,12 +134,11 @@
           </div>
         </div>
       </section>
-      <section class="section-separator section-separator--light"></section>
-      <section class="section section--light section--light--bg pt-90 pb-240 pbm-100">
+      <section class="section section--light section--light--bg section--animate pt-90 pb-240 pbm-100">
         <div class="container">
           <div class="info">
             <div class="info__detail">
-              <h2 class="info__title title title--big title--dark info-animate">Для кого</h2>
+              <h2 class="info__title title title--big title--dark">Для кого</h2>
               <p class="info__text info-animate">
                 «Мой бизнес. VI Международный балтийский бизнес-форум»<br>
 
@@ -187,7 +186,7 @@
             </div>
           </div>
         </div>
-        <div class="separator">
+        <div class="separator separator--info">
           <svg width="7680" height="288" viewBox="0 0 7680 288" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_2015_671)">
               <g clip-path="url(#clip1_2015_671)">
@@ -712,17 +711,16 @@
                   Узнаете об актуальных мерах господдержки для бизнеса
                 </p>
               </div>
-              <a href="../dist/assets/Программа_Форума_Море_бизнеса_v21_05_2024.docx" class="features__button button"
-                 download>Программа форума</a>
+              <a href="./program.html" class="features__button button">Программа форума</a>
               <div class="features__circle"></div>
               <div class="dots dots--1">
-                <img src="../assets/images/dotted/dotted-1.svg" alt="">
+                <img src="./assets/images/dotted/dotted-1.svg" alt="">
               </div>
               <div class="dots dots--2">
-                <img src="../assets/images/dotted/dotted-2.svg" alt="">
+                <img src="./assets/images/dotted/dotted-2.svg" alt="">
               </div>
               <div class="dots dots--3">
-                <img src="../assets/images/dotted/dotted-3.svg" alt="">
+                <img src="./assets/images/dotted/dotted-3.svg" alt="">
               </div>
             </div>
           </div>
@@ -1279,49 +1277,49 @@
             href="https://yandex.ru/maps/10859/svetlogorsk/category/concert_hall/184105902/?utm_medium=mapframe&utm_source=maps"
             style="color:#eee;font-size:12px;position:absolute;top:28px;">Концертный зал в Светлогорске</a>
             <iframe
-              src="https://yandex.ru/map-widget/v1/?filter=alternate_vertical%3ARequestWindow&ll=20.159226%2C54.945110&mode=search&oid=33188771073&ol=biz&sctx=ZAAAAAgBEAAaKAoSCVg7inPU20hAEeC%2BDpwzUE1AEhIJgQncupunxD8RxZEHIos0vT8iBgABAgMEBSgKOABAsokGSAFiHnJlbGV2X3NlcnZpY2VfYXJlYV9wZXJjZW50PTEwMGoCcnWdAc3MTD2gAQCoAQC9AXiNTU%2FCAQWB6tHRe4ICLNGP0L3RgtCw0YDRjCDRhdC%2B0LvQuyDQutCw0LvQuNC90LjQvdCz0YDQsNC0igIAkgICMjKaAgxkZXNrdG9wLW1hcHM%3D&sll=20.159226%2C54.945110&source=serp_navig&sspn=0.020329%2C0.006878&text=%D1%8F%D0%BD%D1%82%D0%B0%D1%80%D1%8C%20%D1%85%D0%BE%D0%BB%D0%BB%20%D0%BA%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4&z=16.6"
+              src="https://yandex.ru/map-widget/v1/?filter=alternate_vertical%3ARequestWindow&ll=20.159226%2C54.945110&mode=search&oid=33188771073&ol=biz&sctx=ZAAAAAgBEAAaKAoSCVg7inPU20hAEeC%2BDpwzUE1AEhIJgQncupunxD8RxZEHIos0vT8iBgABAgMEBSgKOABAsokGSAFiHnJlbGV2X3NlcnZpY2VfYXJlYV9wZXJjZW50PTEwMGoCcnWdAc3MTD2gAQCoAQC9AXiNTU%2FCAQWB6tHRe4ICLNGP0L3RgtCw0YDRjCDRhdC%2B0LvQuyDQutCw0LvQuNC90LjQvdCz0YDQsNC0igIAkgICMjKaAgxkZXNrdG9wLW1hcHM%3D&sll=20.159226%2C54.945110&source=serp_navig&sspn=0.020329%2C0.006878&text=%D1%8F%D0%BD%D1%82%D0%B0%D1%80%D1%8C%20%D1%85%D0%BE%D0%BB%D0%BB%20%D0%BA%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4&z=16.6&scroll=false"
               allowfullscreen="true" style="position:relative;"></iframe>
           </div>
         </div>
       </section>
     </main>
     <footer class="footer" id="footer">
-      <div class="container">
-        <div class="footer__wrapper">
-          <div class="footer__top">
-            <a href="./index.html" class="footer__logo">
-              <img src="./assets/images/logo.svg" alt="">
-            </a>
-            <div class="footer__address">
-              <p class="footer__text">
-                Центр «Мой бизнес» Калининград<br>
-                <a href="tel:+74012994904">+7 (4012) 994-904</a>
-              </p>
-              <p class="footer__text">
-                Калининград, ул. Уральская 18
-              </p>
-            </div>
-          </div>
-          <div class="footer__line"></div>
-          <div class="footer__bottom">
-            <div class="footer__links">
-              <a href="./policy.html" class="footer__text footer__text--small" target="_blank">Политика конфиденциальности</a>
-              <a href="#" class="footer__text footer__text--small">Соглашение на обработку персональных данных</a>
-            </div>
-            <div class="footer__social">
-              <a href="https://t.me/mbkld" class="footer__text footer__text--bold">telegram</a>
-              <a href="https://vk.com/mbkaliningrad39" class="footer__text footer__text--bold">вконтакте</a>
-            </div>
-          </div>
-          <div class="developer">
-            <a href="https://diez.io/" class="developer__text">
-              Разработано -
-              <img src="./assets/images/logo-dnt.svg" alt="">
-            </a>
-          </div>
+  <div class="container">
+    <div class="footer__wrapper">
+      <div class="footer__top">
+        <a href="./index.html" class="footer__logo">
+          <img src="./assets/images/logo.svg" alt="">
+        </a>
+        <div class="footer__address">
+          <p class="footer__text">
+            Центр «Мой бизнес» Калининград<br>
+            <a href="tel:+74012994904">+7 (4012) 994-904</a>
+          </p>
+          <p class="footer__text">
+            Калининград, ул. Уральская 18
+          </p>
         </div>
       </div>
-    </footer>
+      <div class="footer__line"></div>
+      <div class="footer__bottom">
+        <div class="footer__links">
+          <a href="./policy.html" class="footer__text footer__text--small" target="_blank">Политика конфиденциальности</a>
+          <a href="#" class="footer__text footer__text--small">Соглашение на обработку персональных данных</a>
+        </div>
+        <div class="footer__social">
+          <a href="https://t.me/mbkld" class="footer__text footer__text--bold">telegram</a>
+          <a href="https://vk.com/mbkaliningrad39" class="footer__text footer__text--bold">вконтакте</a>
+        </div>
+      </div>
+      <div class="developer">
+        <a href="https://diez.io/" class="developer__text">
+          Разработано -
+          <img src="./assets/images/logo-dnt.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
   </div>
 </div>
 

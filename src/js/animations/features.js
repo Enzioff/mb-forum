@@ -47,7 +47,7 @@ const animationIn = () => {
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
-      end: "300%",
+      end: "200%",
       animation: tl1,
     });
   })

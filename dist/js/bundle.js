@@ -22432,7 +22432,7 @@ const animationIn = () => {
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
-      end: "300%",
+      end: "200%",
       animation: tl1,
     });
   })
@@ -22720,58 +22720,62 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const initInfoAnimation = () => {
-  animationSeparatorIn();
   animationInfoIn();
-};
-
-
-const animationSeparatorIn = () => {
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
-  // separator
-  const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
-
-  if (document.querySelector(".section-separator")) {
-    tl.fromTo(".section-separator", {
-      yPercent: 0,
-      duration: 1
-    }, {
-      yPercent: 0,
-      duration: 1
-    }).from(".section-separator", {
-      scale: 0.5,
-      duration: 1,
-      borderRadius: 70,
-      ease: "expo"
-    }, "-=4");
-
-    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
-      trigger: ".section-separator",
-      start: "center center",
-      animation: tl,
-      pin: ".section-separator",
-      pinSpacing: false,
-      end: `100%`,
-      scrub: 1,
-      onLeave: (self) => {
-        self.trigger.classList.add("overflow");
-      },
-      onEnterBack: (self) => {
-        self.trigger.classList.remove("overflow");
-      }
-    });
-  }
 };
 
 const animationInfoIn = () => {
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_DrawSVGPlugin__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  const separatorLight = document.querySelector('.section--animate .separator')
   const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
   let tl1 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
   let tl2 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+  let tl3 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline()
   const initTimeline1 = () => {
-    tl1.from(".decor__main", {
+    tl1.from('.section--animate', {
+      scale: 0.5,
+      duration: 1,
+    }).from(".decor__main", {
       y: -200,
       opacity: 0,
       duration: 0.8,
+      delay: 1,
+      ease: "sine",
+    })
+      .from(".decor__block", {
+        x: 200,
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back"
+      }).from(".decor__wave", {
+      x: -300,
+      rotation: -45,
+      opacity: 0,
+      duration: 1,
+      ease: "circ",
+    }).from('.info__title', {
+      x: -300,
+      opacity: 0,
+      duration: 1,
+      ease: "back",
+      onComplete: () => {
+        separatorLight.classList.add('visible')
+      },
+      onUpdate: () => {
+        separatorLight.classList.remove('visible')
+      }
+    }).from(".info-animate", {
+      x: -300,
+      opacity: 0,
+      duration: 1,
+      ease: "back",
+      stagger: 0.4,
+    });
+    tl3.from(".decor__main", {
+      y: -200,
+      opacity: 0,
+      duration: 0.8,
+      delay: 1,
       ease: "sine"
     })
       .from(".decor__block", {
@@ -22791,22 +22795,23 @@ const animationInfoIn = () => {
       opacity: 0,
       duration: 1,
       ease: "back",
-      stagger: 0.4
+      stagger: 0.4,
     });
 
     gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
-      trigger: ".info",
+      trigger: ".section--animate",
       start: "center center",
-      pin: ".info",
+      pin: ".section--animate",
       end: "200%",
       scrub: 1,
+      animation: tl1,
     });
     gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
       trigger: ".info",
       start: "top center",
       end: "200%",
       scrub: 1,
-      animation: tl1,
+      animation: tl3,
     });
   };
   const initTimeline2 = () => {
@@ -22815,7 +22820,7 @@ const animationInfoIn = () => {
       opacity: 0,
       duration: 0.5,
       ease: "back",
-      stagger: 0.2
+      stagger: 0.2,
     }).from(".decor__main", {
       y: -100,
       opacity: 0,
@@ -22833,11 +22838,11 @@ const animationInfoIn = () => {
       rotation: -45,
       opacity: 0,
       duration: 0.5,
-      ease: "circ"
+      ease: "circ",
     });
     gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
       trigger: ".info",
-      start: "-200px top",
+      start: "-200px center",
       end: "100%",
       animation: tl2,
     });
@@ -22882,6 +22887,8 @@ const initIntroAnimation = () => {
 const animationIn = () => {
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_ScrambleTextPlugin__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
+  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia()
+
   const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
   if (document.querySelector(".intro__item")) {
     tl.from(".intro__item", {
@@ -22910,12 +22917,18 @@ const animationIn = () => {
         repeat: -1,
         ease: "elastic"
       });
-
-    gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
-      trigger: ".section--full",
-      pin: ".section--full",
-      pinSpacing: false
-    });
+    mm.add('(min-width: 1201px)', () => {
+      gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
+        trigger: ".section--full",
+        pin: ".section--full",
+        pinSpacing: false
+      });
+    })
+      .add('(max-width: 1200px)', () => {
+        gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
+          trigger: ".section--full",
+        });
+      })
   }
 };
 
@@ -22955,7 +22968,7 @@ const animationIn = () => {
     gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.from(text.chars, {
       scrollTrigger: {
         trigger: title,
-        start: "top center"
+        start: "100% bottom"
       },
       y: -50,
       rotation: -90,
@@ -23038,7 +23051,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "initWaveAnimation": function() { return /* binding */ initWaveAnimation; }
 /* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
 /* harmony import */ var gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/MorphSVGPlugin */ "./node_modules/gsap/MorphSVGPlugin.js");
+
 
 
 
@@ -23048,13 +23063,18 @@ const initWaveAnimation = () => {
 
 
 const animationIn = () => {
-  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia()
-  mm.add('(min-width: 1201px)', () => {
-    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-    const tl2 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-    const tl3 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
-    const tl4 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({ repeat: -1, yoyo: true });
+  gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"], gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
+  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
+
+  mm.add("(min-width: 1201px)", () => {
+
+
+    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+      repeat: -1,
+      yoyo: true,
+      paused: true,
+    });
+
     const wave1 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-1");
     const wave2 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-2");
     const wave3 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-3");
@@ -23064,7 +23084,7 @@ const animationIn = () => {
     const wave7 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-7");
     const wave8 = gsap_MorphSVGPlugin__WEBPACK_IMPORTED_MODULE_1__["default"].convertToPath(".wave-8");
 
-    if (!wave1) return
+    if (!wave1) return;
 
     tl.to(".wave", {
       duration: 2,
@@ -23075,41 +23095,77 @@ const animationIn = () => {
         duration: 2,
         morphSVG: wave2,
         ease: "none"
-      });
-
-    tl2.to(".wave2", {
-      duration: 2,
-      morphSVG: wave3,
-      ease: "none"
-    })
+      }, 2)
+      .to(".wave2", {
+        duration: 2,
+        morphSVG: wave3,
+        ease: "none"
+      }, 0)
       .to(".wave2", {
         duration: 2,
         morphSVG: wave4,
         ease: "none"
-      });
-
-    tl3.to(".wave3", {
-      duration: 2,
-      morphSVG: wave5,
-      ease: "none"
-    })
+      }, 2)
+      .to(".wave3", {
+        duration: 2,
+        morphSVG: wave5,
+        ease: "none"
+      }, 0)
       .to(".wave3", {
         duration: 2,
         morphSVG: wave6,
         ease: "none"
-      });
-
-    tl4.to(".wave4", {
-      duration: 2,
-      morphSVG: wave7,
-      ease: "none"
-    })
+      }, 2)
+      .to(".wave4", {
+        duration: 2,
+        morphSVG: wave7,
+        ease: "none"
+      }, 0)
       .to(".wave4", {
         duration: 2,
         morphSVG: wave8,
         ease: "none"
-      });
-  })
+      }, 2);
+
+    const separators = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('.separator');
+
+    separators.forEach(separator => {
+      if (separator.classList.contains('separator--info')) {
+        gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+          trigger: '.section--animate',
+          end: '400%',
+          onEnter: () => {
+            tl.play();
+          },
+          onEnterBack: () => {
+            tl.play();
+          },
+          onLeave: () => {
+            tl.pause()
+          },
+          onLeaveBack: () => {
+            tl.pause();
+          }
+        })
+      } else {
+        gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger.create({
+          trigger: separator,
+          onEnter: () => {
+            tl.play();
+          },
+          onEnterBack: () => {
+            tl.play();
+          },
+          onLeave: () => {
+            tl.pause()
+          },
+          onLeaveBack: () => {
+            tl.pause();
+          }
+        })
+      }
+    })
+  });
 };
 
 /***/ }),
@@ -23171,11 +23227,15 @@ const initAnimations = () => {
 const initSmoothScroll = () => {
   gsap__WEBPACK_IMPORTED_MODULE_10__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_11__.ScrollTrigger, gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_12__.ScrollSmoother);
 
-  gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_12__.ScrollSmoother.create({
-    smooth: 1,
-    effects: true,
-    smoothTouch: 0.1
-  });
+  const mm = gsap__WEBPACK_IMPORTED_MODULE_10__.gsap.matchMedia();
+
+  mm.add('(min-width: 1200px)', () => {
+    gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_12__.ScrollSmoother.create({
+      smooth: 1,
+      effects: true,
+      smoothTouch: 0.1
+    });
+  })
 };
 
 /***/ }),
@@ -23448,19 +23508,23 @@ const initMobileMenu = () => {
   const burger = document.querySelector('[data-burger]');
   const menu = document.querySelector('[data-mobile-menu]');
   const menuClose = menu.querySelector('[data-mobile-close]');
-  const menuLinks = menu.querySelectorAll('.nav__link')
+  const menuLinks = menu.querySelectorAll('.nav__link');
+  const body = document.querySelector('body');
 
   burger.addEventListener('click', () => {
     menu.classList.add('active')
+    body.style.overflow = 'hidden'
   })
 
   menuClose.addEventListener('click', () => {
     menu.classList.remove('active')
+    body.style.overflow = 'visible'
   })
 
   menuLinks.forEach(el => {
     el.addEventListener('click', () => {
       menu.classList.remove('active')
+      body.style.overflow = 'visible'
     })
   })
 }
@@ -23522,14 +23586,20 @@ const initScroll = () => {
 
   let isScrolling;
 
-  window.addEventListener('scroll', function() {
-    window.clearTimeout(isScrolling);
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
 
+  window.addEventListener('scroll', function() {
+    const topPosition = window.pageYOffset;
+
+    window.clearTimeout(isScrolling);
     notification.classList.remove('active');
 
-    isScrolling = setTimeout(function() {
-      notification.classList.add('active');
-    }, 200);
+    if (topPosition >= 200 && topPosition + windowHeight < documentHeight - 200) {
+      isScrolling = setTimeout(function() {
+        notification.classList.add('active');
+      }, 400);
+    }
   });
 }
 

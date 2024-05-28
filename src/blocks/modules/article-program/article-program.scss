@@ -1,0 +1,125 @@
+.article-program {
+  display: flex;
+  flex-direction: column;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: $blue-shine;
+    border-radius: 20px;
+
+    @include r($mobile) {
+      padding: 20px 10px;
+    }
+  }
+
+  &__element {
+    display: grid;
+    grid-template-columns: 184px 1fr;
+    gap: 74px;
+    &:not(:last-of-type) {
+      padding-bottom: 34px;
+      border-bottom: 1px solid rgba($blue-black, 0.2);
+      @include r($mobile) {
+        padding-bottom: 20px;
+      }
+    }
+    &:not(:first-of-type) {
+      padding-top: 34px;
+      @include r($mobile) {
+        padding-top: 20px;
+      }
+    }
+
+    @include r($mobile) {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__time,
+  &__notation {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $blue-black;
+  }
+
+  &__title {
+    margin-bottom: 6px;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 31.5px;
+    color: $blue-black;
+
+    @include r($mobile) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    &--medium {
+      margin-bottom: 14px;
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    &--small {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 28.8px;
+    }
+  }
+
+  &__notification {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $red;
+
+    @include r($mobile) {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
+  }
+
+  &__description {
+    &:not(:last-of-type) {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__text,
+  &__item {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28.8px;
+    color: $blue-black;
+  }
+
+  &__text {
+    &:not(:last-of-type) {
+      margin-bottom: 24px;
+    }
+    strong {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 28.8px;
+    }
+  }
+
+  ol.article-program__list {
+    list-style: inside decimal;
+  }
+  ul.article-program__list {
+    list-style: inside disc;
+  }
+}
