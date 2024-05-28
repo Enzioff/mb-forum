@@ -3039,6 +3039,12 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   background-color: #CBECEE;
   overflow: hidden;
 }
+.section--light .separator {
+  opacity: 0;
+}
+.section--light .separator.visible {
+  opacity: 1;
+}
 .section--light--bg {
   background-image: url("../assets/images/waves/wave-transparent-1.svg");
   background-repeat: no-repeat;

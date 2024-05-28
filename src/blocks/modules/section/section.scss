@@ -33,13 +33,13 @@
     background-color: #CBECEE;
     overflow: hidden;
 
-    //.separator {
-    //  opacity: 0;
-    //
-    //  &.visible {
-    //    opacity: 1;
-    //  }
-    //}
+    .separator {
+      opacity: 0;
+
+      &.visible {
+        opacity: 1;
+      }
+    }
 
     &--bg {
       background-image:url("../assets/images/waves/wave-transparent-1.svg");
