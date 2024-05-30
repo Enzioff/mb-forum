@@ -1,11 +1,12 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   padding: 36px 0;
   width: 100%;
   z-index: 2;
+  transition: .2s linear;
 
   @include r($mobile) {
     padding: 13px 0;
@@ -22,5 +23,9 @@
       //transform: translate(0, -100px);
       //opacity: 0;
     }
+  }
+
+  &.background {
+    padding: 15px 0;
   }
 }

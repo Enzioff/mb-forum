@@ -27,12 +27,10 @@
     <use xlink:href="./assets/sprite/sprite.svg#icon-arrow-right"></use>
   </svg>
 </div>
-<div id="smooth-wrapper">
-  <div id="smooth-content">
-    <header class="header">
+<header class="header">
   <div class="container">
     <div class="header__wrapper">
-      <nav class="nav mob-hidden">
+      <nav class="nav mob-hidden" data-nav="default">
         <a href="#about" class="nav__link">О форуме</a>
         <a href="#program" class="nav__link">Программа</a>
         <a href="#speakers" class="nav__link">Спикеры</a>
@@ -40,7 +38,7 @@
         <a href="#footer" class="nav__link">Контакты</a>
       </nav>
       <button class="button" data-fancybox data-src="#registration">Регистрация</button>
-      <div class="burger" data-burger></div>
+      <div class="burger" data-burger="default"></div>
     </div>
   </div>
   <div class="mobile-menu" data-mobile-menu>
@@ -63,6 +61,8 @@
     </div>
   </div>
 </header>
+<div id="smooth-wrapper">
+  <div id="smooth-content">
     <main class="main">
       <section class="section section--backdrop section--full">
         <video class="video" autoplay loop muted width="250">
@@ -654,7 +654,7 @@
               </div>
             </div>
           </div>
-          <div class="animation-fixed pt-50" id="program">
+          <div class="animation-fixed pt-100" id="program">
             <div class="head head--center-mobile mb-80">
               <div class="head__info">
                 <h2 class="title">Причины посетить форум</h2>

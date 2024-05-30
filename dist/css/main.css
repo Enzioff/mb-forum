@@ -1917,6 +1917,12 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   margin: 0;
 }
 
+.background {
+  background-color: #0F284B;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
 @media only screen and (max-width: 1200px) {
   .mbm-1 {
     margin-bottom: 0.0625rem;
@@ -3169,7 +3175,7 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: -webkit-box;
@@ -3179,6 +3185,8 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   padding: 36px 0;
   width: 100%;
   z-index: 2;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 @media only screen and (max-width: 1200px) {
   .header {
@@ -3201,6 +3209,10 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
           justify-content: space-between;
   gap: 10px;
 }
+.header.background {
+  padding: 15px 0;
+}
+
 .nav {
   display: -webkit-box;
   display: -webkit-flex;

@@ -42,10 +42,14 @@ const animationInfoIn = () => {
       duration: 1,
       ease: "back",
       onComplete: () => {
-        separatorLight.classList.add('visible')
+        if (separatorLight) {
+          separatorLight.classList.add('visible')
+        }
       },
       onUpdate: () => {
-        separatorLight.classList.remove('visible')
+        if (separatorLight) {
+          separatorLight.classList.remove('visible')
+        }
       }
     }).from(".info-animate", {
       x: -300,

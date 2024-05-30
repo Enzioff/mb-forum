@@ -108,3 +108,8 @@ input[type="number"] {
         margin: 0;
     }
 }
+
+.background {
+    background-color: $blue-black;
+    transition: .2s linear;
+}
