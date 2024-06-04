@@ -36,20 +36,27 @@ const animationIn = () => {
       link.addEventListener("click", (evt) => {
         evt.preventDefault();
         const targetElem = link.getAttribute('href');
+        const section = document.getElementById('program')
+        const offset = -(window.innerHeight + section.offsetHeight);
+        const targetPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+
         if (targetElem) {
           if (targetElem === '#program') {
+            gsap.to(window, {
+              scrollTo: {
+                y: targetElem,
+                offsetY: -3,
+              },
+              duration: 2,
+            }).progress(1);
+          } else {
             gsap.to(window, {
               duration: 2,
               scrollTo: {
                 y: targetElem,
-                offsetY: -window.innerHeight * 2.6,
-              }
-            });
-          } else {
-            gsap.to(window, {
-              duration: 2,
-              scrollTo: targetElem
-            });
+                offsetY: 150
+              },
+            }).progress(0.5);
           }
         }
       });

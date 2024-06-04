@@ -85,12 +85,12 @@ const initForm = () => {
         attention.classList.add("active");
       }
 
-      if (input.hasAttribute('data-inn') && input.value.includes("_")) {
-        error = true;
-        attention.classList.add("active");
-      } else if (input.hasAttribute('data-inn') && input.value === "") {
-        attention.classList.remove("active");
-      }
+      // if (input.hasAttribute('data-inn') && input.value.includes("_")) {
+      //   error = true;
+      //   attention.classList.add("active");
+      // } else if (input.hasAttribute('data-inn') && input.value === "") {
+      //   attention.classList.remove("active");
+      // }
 
       if (!error) {
         attention.classList.remove("active");

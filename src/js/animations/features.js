@@ -43,10 +43,15 @@ const animationIn = () => {
         },
         ">-2");
     ScrollTrigger.create({
+      id: 'features',
       trigger: ".animation-fixed",
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
+      snap: {
+        snapTo: 1 / 1,
+        directional: true,
+      },
       end: "200%",
       animation: tl1,
     });

@@ -22428,10 +22428,15 @@ const animationIn = () => {
         },
         ">-2");
     gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
+      id: 'features',
       trigger: ".animation-fixed",
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
+      snap: {
+        snapTo: 1 / 1,
+        directional: true,
+      },
       end: "200%",
       animation: tl1,
     });
@@ -22678,20 +22683,27 @@ const animationIn = () => {
       link.addEventListener("click", (evt) => {
         evt.preventDefault();
         const targetElem = link.getAttribute('href');
+        const section = document.getElementById('program')
+        const offset = -(window.innerHeight + section.offsetHeight);
+        const targetPosition = section.getBoundingClientRect().top + window.scrollY - offset;
+
         if (targetElem) {
           if (targetElem === '#program') {
+            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(window, {
+              scrollTo: {
+                y: targetElem,
+                offsetY: -3,
+              },
+              duration: 2,
+            }).progress(1);
+          } else {
             gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(window, {
               duration: 2,
               scrollTo: {
                 y: targetElem,
-                offsetY: -window.innerHeight * 2.6,
-              }
-            });
-          } else {
-            gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(window, {
-              duration: 2,
-              scrollTo: targetElem
-            });
+                offsetY: 150
+              },
+            }).progress(0.5);
           }
         }
       });
@@ -23363,12 +23375,12 @@ const initForm = () => {
         attention.classList.add("active");
       }
 
-      if (input.hasAttribute('data-inn') && input.value.includes("_")) {
-        error = true;
-        attention.classList.add("active");
-      } else if (input.hasAttribute('data-inn') && input.value === "") {
-        attention.classList.remove("active");
-      }
+      // if (input.hasAttribute('data-inn') && input.value.includes("_")) {
+      //   error = true;
+      //   attention.classList.add("active");
+      // } else if (input.hasAttribute('data-inn') && input.value === "") {
+      //   attention.classList.remove("active");
+      // }
 
       if (!error) {
         attention.classList.remove("active");
