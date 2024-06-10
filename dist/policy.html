@@ -19,6 +19,11 @@
 <link href="./css/main.css" rel="stylesheet"></head>
 
 <body class="body">
+<div class="up" data-up>
+  <svg class="up__icon">
+    <use xlink:href="./assets/sprite/sprite.svg#icon-arrow-right"></use>
+  </svg>
+</div>
 <header class="header">
   <div class="container">
     <div class="header__wrapper">
@@ -221,12 +226,12 @@
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="text" name="PATRONYMIC" placeholder="Отчество" data-text>
-          <span class="attention">Ошибка при заполнении!</span>
+          <input class="input" type="text" name="PATRONYMIC" placeholder="Отчество" data-validate data-text>
+          <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
-          <input class="input" type="text" name="DATE" placeholder="Дата рождения" data-date>
-          <span class="attention">Ошибка при заполнении!</span>
+          <input class="input" type="text" name="DATE" placeholder="Дата рождения" data-validate data-date>
+          <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item">
           <input class="input" type="text" name="EMAIL" placeholder="Электронная почта" data-email>

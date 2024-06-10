@@ -24,7 +24,7 @@ const initMask = () => {
         },
       }).mask(el);
     } else if (el.hasAttribute('data-inn')) {
-      inputmask({"mask": '999999999999'}).mask(el)
+      inputmask({"mask": '9999999999[99]'}).mask(el)
     }
   })
 }

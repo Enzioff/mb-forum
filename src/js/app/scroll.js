@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   initScroll();
+  initToUp();
 });
 
 const initScroll = () => {
   const notification = document.querySelector("[data-notification]");
+  const toUp = document.querySelector("[data-up]");
 
   let isScrolling;
 
@@ -44,5 +46,18 @@ const initScroll = () => {
         notification.classList.add("active");
       }, 400);
     }
+
+    if (topPosition >= 800) {
+      toUp.classList.add('visible')
+    } else {
+      toUp.classList.remove('visible')
+    }
   });
 };
+
+const initToUp = () => {
+  const toUp = document.querySelector("[data-up]");
+  toUp.addEventListener('click', () => {
+    window.scrollTo({top: 0})
+  })
+}

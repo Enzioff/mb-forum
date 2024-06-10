@@ -6,6 +6,16 @@
   background-color: #08234B;
   border-radius: 30px;
 
+  &--limit {
+    .article-speaker__description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+  }
+
   &__picture {
     display: flex;
     height: 362px;
