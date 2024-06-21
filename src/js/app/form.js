@@ -11,18 +11,26 @@ const initForm = () => {
   const els = [...form.querySelectorAll(".modal__label"), ...form.querySelectorAll(".modal__item")];
   const url = form.getAttribute("action");
   const submit = form.querySelector("button[type=\"submit\"]");
-  const content = document.querySelector("[data-modal-content]");
   const accepted = form.querySelectorAll("[data-form-accept]");
   const jurItems = form.querySelectorAll("[data-jur-item]");
+  const customSelect = form.querySelector("[data-custom-select]");
+  const company = els.filter(el => el.querySelector('[data-company]'))[0]
+  const companyInput = company.querySelector('input')
+  let title = null;
+  if (customSelect) {
+    title = customSelect.querySelector("[data-custom-select-title]");
+  }
 
   els.forEach(el => {
     const input = el.querySelector("input");
     input.addEventListener("change", () => {
       if (input.checked && input.hasAttribute("data-jur")) {
         jurItems.forEach(temp => temp.style.display = "flex");
+        companyInput.setAttribute('data-validate', true)
       }
       if (input.checked && input.hasAttribute("data-personal")) {
         jurItems.forEach(temp => temp.style.display = "none");
+        companyInput.removeAttribute('data-validate')
       }
     });
   });
@@ -49,7 +57,24 @@ const initForm = () => {
   submit.addEventListener("click", (evt) => {
     let error = false;
 
-    const formItems = form.querySelectorAll('.modal__item')
+    const formItems = form.querySelectorAll(".modal__item");
+
+    if (customSelect) {
+      const attention = customSelect.querySelector(".attention");
+
+      if (title) {
+        if (title.dataset.value === "") {
+          error = true;
+          attention.classList.add("active");
+        } else {
+          attention.classList.remove("active");
+        }
+      }
+
+      setTimeout(() => {
+        attention.classList.remove("active");
+      }, 3000);
+    }
 
     formItems.forEach(el => {
       const attention = el.querySelector(".attention");
@@ -59,15 +84,17 @@ const initForm = () => {
       if (input.value.length >= 1 && input.value.length <= 3) {
         error = true;
         attention.classList.add("active");
-      } else if (input.value !== '' && input.value.length > 3) {
+      } else if (input.value !== "" && input.value.length > 3) {
         attention.classList.remove("active");
       }
 
-      if (input.value.length > 1 && input.value.includes("_")) {
-        error = true;
-        attention.classList.add("active");
-      } else if (input.value !== '') {
-        attention.classList.remove("active");
+      if (input.inputmask) {
+        if (input.value.length > 1 && !input.inputmask.isComplete()) {
+          error = true;
+          attention.classList.add("active");
+        } else if (input.value !== "") {
+          attention.classList.remove("active");
+        }
       }
 
       if (input.hasAttribute("data-validate") && input.value.length < 3) {
@@ -80,7 +107,7 @@ const initForm = () => {
         attention.classList.add("active");
       }
 
-      if (input.hasAttribute('data-phone') && input.value.includes("_") || input.hasAttribute('data-phone') && input.value === '') {
+      if (input.hasAttribute("data-phone") && input.value.includes("_") || input.hasAttribute("data-phone") && input.value === "") {
         error = true;
         attention.classList.add("active");
       }
@@ -98,10 +125,9 @@ const initForm = () => {
 
       setTimeout(() => {
         attention.classList.remove("active");
-      }, 3000)
+      }, 3000);
     });
 
-    console.log(error)
     if (!error) {
       submitForm();
     }
@@ -124,6 +150,12 @@ const initForm = () => {
       }
     });
 
+    if (title) {
+      if (title.dataset.value !== "") {
+        data.append("MASTER_CLASS", title.dataset.value);
+      }
+    }
+
     const resetForm = () => {
       Fancybox.close();
       els.forEach(temp => {
@@ -134,6 +166,10 @@ const initForm = () => {
           input.checked = false;
         }
       });
+      if (title) {
+        title.dataset.value = "";
+        title.textContent = "Выберите мастер-класс";
+      }
       accepted.forEach(el => {
         el.checked = false;
       });
@@ -142,36 +178,40 @@ const initForm = () => {
       form.removeEventListener("submit", handleSubmit);
     };
 
-    axios.post(url, data)
-      .then(response => response.data)
-      .then(data => {
-        const modalAccept = document.querySelector('.modal--accept');
-        const title = modalAccept.querySelector('[data-modal-title]')
-        const text = modalAccept.querySelector('[data-modal-text]')
-        const button = modalAccept.querySelector('[data-modal-close]')
-        title.textContent = 'вы успешно прошли регистрацию!'
-        text.textContent = 'Ждём Вас на форуме!'
-        button.textContent = 'Отлично!'
-        resetForm();
-        Fancybox.show([{
-          src: '#accept',
-          type: 'inline',
-        }])
-      })
-      .catch(error => {
-        console.error(error);
-        const modalAccept = document.querySelector('.modal--accept');
-        const title = modalAccept.querySelector('[data-modal-title]')
-        const text = modalAccept.querySelector('[data-modal-text]')
-        const button = modalAccept.querySelector('[data-modal-close]')
-        title.textContent = 'Ошибка!'
-        text.textContent = error.message
-        button.textContent = 'Закрыть'
-        resetForm();
-        Fancybox.show([{
-          src: '#accept',
-          type: 'inline',
-        }])
+    grecaptcha.ready(function() {
+      grecaptcha.execute("6LfubP0pAAAAAKqEg3MYhQVtlVZceIXCXbpA8JYT", { action: "submit" }).then(function(token) {
+        axios.post(url, data)
+          .then(response => response.data)
+          .then(data => {
+            const modalAccept = document.querySelector(".modal--accept");
+            const title = modalAccept.querySelector("[data-modal-title]");
+            const text = modalAccept.querySelector("[data-modal-text]");
+            const button = modalAccept.querySelector("[data-modal-close]");
+            title.textContent = "вы успешно прошли регистрацию!";
+            text.textContent = "Ждём Вас на форуме!";
+            button.textContent = "Отлично!";
+            resetForm();
+            Fancybox.show([{
+              src: "#accept",
+              type: "inline"
+            }]);
+          })
+          .catch(error => {
+            console.error(error);
+            const modalAccept = document.querySelector(".modal--accept");
+            const title = modalAccept.querySelector("[data-modal-title]");
+            const text = modalAccept.querySelector("[data-modal-text]");
+            const button = modalAccept.querySelector("[data-modal-close]");
+            title.textContent = "Ошибка!";
+            text.textContent = error.message;
+            button.textContent = "Закрыть";
+            resetForm();
+            Fancybox.show([{
+              src: "#accept",
+              type: "inline"
+            }]);
+          });
       });
+    });
   };
 };

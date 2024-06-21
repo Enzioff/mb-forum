@@ -12,3 +12,5 @@ import "./app/mask";
 import "./app/mobileMenu";
 import "./app/scroll";
 import "./app/showMore";
+import "./app/map";
+import "./app/customSelect";

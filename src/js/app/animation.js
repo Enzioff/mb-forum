@@ -38,9 +38,9 @@ const initSmoothScroll = () => {
 
   mm.add('(min-width: 1200px)', () => {
     ScrollSmoother.create({
-      smooth: 1,
+      smooth: 0.7,
       effects: true,
-      smoothTouch: 0.1
+      smoothTouch: 0.1,
     });
   })
 };

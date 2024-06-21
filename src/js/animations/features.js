@@ -10,11 +10,13 @@ export const initFeaturesAnimation = () => {
 
 const animationIn = () => {
   gsap.registerPlugin(ScrollTrigger, TextPlugin);
-  const mm = gsap.matchMedia()
+  const mm = gsap.matchMedia();
   const tl1 = gsap.timeline();
   const tl2 = gsap.timeline();
 
-  mm.add('(min-width: 1201px)', () => {
+  if (!document.querySelector(".features__item")) return;
+
+  mm.add("(min-width: 1201px)", () => {
     tl1
       .from(".features__item", {
         y: -150,
@@ -43,22 +45,22 @@ const animationIn = () => {
         },
         ">-2");
     ScrollTrigger.create({
-      id: 'features',
+      id: "features",
       trigger: ".animation-fixed",
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
       snap: {
         snapTo: 1 / 1,
-        directional: true,
+        directional: true
       },
       end: "200%",
       animation: tl1,
     });
-  })
+  });
 
-  mm.add('(max-width: 1200px)', () => {
-    if (document.querySelector('.features__item')) {
+  mm.add("(max-width: 1200px)", () => {
+    if (document.querySelector(".features__item")) {
       tl2
         .from(".features__item", {
           y: -100,
@@ -91,10 +93,10 @@ const animationIn = () => {
         trigger: ".animation-fixed",
         start: "-200px top",
         end: "100%",
-        animation: tl2,
+        animation: tl2
       });
     }
-  })
+  });
 };
 
 const moveBackground = () => {
@@ -104,7 +106,7 @@ const moveBackground = () => {
     function mouseMoveFunc(e) {
       const mouseX = event.clientX;
       const mouseY = event.clientY;
-      const dots = gsap.utils.toArray('.dots')
+      const dots = gsap.utils.toArray(".dots");
 
       dots.forEach((element, idx) => {
         const rect = element.getBoundingClientRect();
@@ -139,8 +141,9 @@ const moveBackground = () => {
         }
       });
     }
-    const features = document.querySelector('.features');
-    if (!features) return
-    features.addEventListener('mousemove', mouseMoveFunc)
+
+    const features = document.querySelector(".features");
+    if (!features) return;
+    features.addEventListener("mousemove", mouseMoveFunc);
   }
 };

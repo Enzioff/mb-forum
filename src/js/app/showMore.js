@@ -1,3 +1,5 @@
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 document.addEventListener("DOMContentLoaded", () => {
   initShowMore();
 });
@@ -19,6 +21,7 @@ const initShowMore = () => {
         showMoreBtn.textContent = "Показать полностью";
         isOpen = !isOpen;
       }
+      ScrollTrigger.refresh(true)
     });
   });
 };

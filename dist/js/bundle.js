@@ -22395,11 +22395,13 @@ const initFeaturesAnimation = () => {
 
 const animationIn = () => {
   gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_TextPlugin__WEBPACK_IMPORTED_MODULE_2__.TextPlugin);
-  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia()
+  const mm = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.matchMedia();
   const tl1 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
   const tl2 = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
 
-  mm.add('(min-width: 1201px)', () => {
+  if (!document.querySelector(".features__item")) return;
+
+  mm.add("(min-width: 1201px)", () => {
     tl1
       .from(".features__item", {
         y: -150,
@@ -22428,22 +22430,22 @@ const animationIn = () => {
         },
         ">-2");
     gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
-      id: 'features',
+      id: "features",
       trigger: ".animation-fixed",
       pin: ".animation-fixed",
       start: "top top",
       scrub: 2,
       snap: {
         snapTo: 1 / 1,
-        directional: true,
+        directional: true
       },
       end: "200%",
       animation: tl1,
     });
-  })
+  });
 
-  mm.add('(max-width: 1200px)', () => {
-    if (document.querySelector('.features__item')) {
+  mm.add("(max-width: 1200px)", () => {
+    if (document.querySelector(".features__item")) {
       tl2
         .from(".features__item", {
           y: -100,
@@ -22476,10 +22478,10 @@ const animationIn = () => {
         trigger: ".animation-fixed",
         start: "-200px top",
         end: "100%",
-        animation: tl2,
+        animation: tl2
       });
     }
-  })
+  });
 };
 
 const moveBackground = () => {
@@ -22489,7 +22491,7 @@ const moveBackground = () => {
     function mouseMoveFunc(e) {
       const mouseX = event.clientX;
       const mouseY = event.clientY;
-      const dots = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray('.dots')
+      const dots = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(".dots");
 
       dots.forEach((element, idx) => {
         const rect = element.getBoundingClientRect();
@@ -22524,9 +22526,10 @@ const moveBackground = () => {
         }
       });
     }
-    const features = document.querySelector('.features');
-    if (!features) return
-    features.addEventListener('mousemove', mouseMoveFunc)
+
+    const features = document.querySelector(".features");
+    if (!features) return;
+    features.addEventListener("mousemove", mouseMoveFunc);
   }
 };
 
@@ -23247,11 +23250,67 @@ const initSmoothScroll = () => {
 
   mm.add('(min-width: 1200px)', () => {
     gsap_ScrollSmoother__WEBPACK_IMPORTED_MODULE_12__.ScrollSmoother.create({
-      smooth: 1,
+      smooth: 0.7,
       effects: true,
-      smoothTouch: 0.1
+      smoothTouch: 0.1,
     });
   })
+};
+
+/***/ }),
+
+/***/ "./src/js/app/customSelect.js":
+/*!************************************!*\
+  !*** ./src/js/app/customSelect.js ***!
+  \************************************/
+/***/ (function() {
+
+document.addEventListener("DOMContentLoaded", () => {
+  initCustomSelect();
+});
+
+const initCustomSelect = () => {
+  const selectList = document.querySelectorAll("[data-custom-select]");
+  const modalContent = document.querySelector('[data-modal-content]')
+  if (!selectList || !modalContent) return;
+
+  selectList.forEach(select => {
+    const items = select.querySelectorAll("[data-custom-select-item]");
+    const title = select.querySelector("[data-custom-select-title]");
+    const head = select.querySelector("[data-custom-select-head]");
+    const list = select.querySelector("[data-custom-select-list]");
+
+    head.addEventListener("click", () => {
+      changeState(list);
+    });
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        changeTitle(title, item);
+        changeState(list);
+      });
+    });
+
+    modalContent.addEventListener("click", (evt) => {
+      const { target } = evt;
+      if (!select.contains(target) && target !== head) {
+        list.classList.remove("active");
+      }
+    });
+  });
+};
+
+const changeState = (element) => {
+  if (element.classList.contains("active")) {
+    element.classList.remove("active");
+  } else {
+    element.classList.add("active");
+  }
+};
+
+const changeTitle = (title, element) => {
+  title.textContent = element.textContent;
+  title.dataset.value = element.dataset.value;
 };
 
 /***/ }),
@@ -23301,18 +23360,26 @@ const initForm = () => {
   const els = [...form.querySelectorAll(".modal__label"), ...form.querySelectorAll(".modal__item")];
   const url = form.getAttribute("action");
   const submit = form.querySelector("button[type=\"submit\"]");
-  const content = document.querySelector("[data-modal-content]");
   const accepted = form.querySelectorAll("[data-form-accept]");
   const jurItems = form.querySelectorAll("[data-jur-item]");
+  const customSelect = form.querySelector("[data-custom-select]");
+  const company = els.filter(el => el.querySelector('[data-company]'))[0]
+  const companyInput = company.querySelector('input')
+  let title = null;
+  if (customSelect) {
+    title = customSelect.querySelector("[data-custom-select-title]");
+  }
 
   els.forEach(el => {
     const input = el.querySelector("input");
     input.addEventListener("change", () => {
       if (input.checked && input.hasAttribute("data-jur")) {
         jurItems.forEach(temp => temp.style.display = "flex");
+        companyInput.setAttribute('data-validate', true)
       }
       if (input.checked && input.hasAttribute("data-personal")) {
         jurItems.forEach(temp => temp.style.display = "none");
+        companyInput.removeAttribute('data-validate')
       }
     });
   });
@@ -23339,7 +23406,24 @@ const initForm = () => {
   submit.addEventListener("click", (evt) => {
     let error = false;
 
-    const formItems = form.querySelectorAll('.modal__item')
+    const formItems = form.querySelectorAll(".modal__item");
+
+    if (customSelect) {
+      const attention = customSelect.querySelector(".attention");
+
+      if (title) {
+        if (title.dataset.value === "") {
+          error = true;
+          attention.classList.add("active");
+        } else {
+          attention.classList.remove("active");
+        }
+      }
+
+      setTimeout(() => {
+        attention.classList.remove("active");
+      }, 3000);
+    }
 
     formItems.forEach(el => {
       const attention = el.querySelector(".attention");
@@ -23349,15 +23433,17 @@ const initForm = () => {
       if (input.value.length >= 1 && input.value.length <= 3) {
         error = true;
         attention.classList.add("active");
-      } else if (input.value !== '' && input.value.length > 3) {
+      } else if (input.value !== "" && input.value.length > 3) {
         attention.classList.remove("active");
       }
 
-      if (input.value.length > 1 && input.value.includes("_")) {
-        error = true;
-        attention.classList.add("active");
-      } else if (input.value !== '') {
-        attention.classList.remove("active");
+      if (input.inputmask) {
+        if (input.value.length > 1 && !input.inputmask.isComplete()) {
+          error = true;
+          attention.classList.add("active");
+        } else if (input.value !== "") {
+          attention.classList.remove("active");
+        }
       }
 
       if (input.hasAttribute("data-validate") && input.value.length < 3) {
@@ -23370,7 +23456,7 @@ const initForm = () => {
         attention.classList.add("active");
       }
 
-      if (input.hasAttribute('data-phone') && input.value.includes("_") || input.hasAttribute('data-phone') && input.value === '') {
+      if (input.hasAttribute("data-phone") && input.value.includes("_") || input.hasAttribute("data-phone") && input.value === "") {
         error = true;
         attention.classList.add("active");
       }
@@ -23388,10 +23474,9 @@ const initForm = () => {
 
       setTimeout(() => {
         attention.classList.remove("active");
-      }, 3000)
+      }, 3000);
     });
 
-    console.log(error)
     if (!error) {
       submitForm();
     }
@@ -23414,6 +23499,12 @@ const initForm = () => {
       }
     });
 
+    if (title) {
+      if (title.dataset.value !== "") {
+        data.append("MASTER_CLASS", title.dataset.value);
+      }
+    }
+
     const resetForm = () => {
       _fancyapps_ui__WEBPACK_IMPORTED_MODULE_1__.Fancybox.close();
       els.forEach(temp => {
@@ -23424,6 +23515,10 @@ const initForm = () => {
           input.checked = false;
         }
       });
+      if (title) {
+        title.dataset.value = "";
+        title.textContent = "Выберите мастер-класс";
+      }
       accepted.forEach(el => {
         el.checked = false;
       });
@@ -23432,39 +23527,81 @@ const initForm = () => {
       form.removeEventListener("submit", handleSubmit);
     };
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data)
-      .then(response => response.data)
-      .then(data => {
-        const modalAccept = document.querySelector('.modal--accept');
-        const title = modalAccept.querySelector('[data-modal-title]')
-        const text = modalAccept.querySelector('[data-modal-text]')
-        const button = modalAccept.querySelector('[data-modal-close]')
-        title.textContent = 'вы успешно прошли регистрацию!'
-        text.textContent = 'Ждём Вас на форуме!'
-        button.textContent = 'Отлично!'
-        resetForm();
-        _fancyapps_ui__WEBPACK_IMPORTED_MODULE_1__.Fancybox.show([{
-          src: '#accept',
-          type: 'inline',
-        }])
-      })
-      .catch(error => {
-        console.error(error);
-        const modalAccept = document.querySelector('.modal--accept');
-        const title = modalAccept.querySelector('[data-modal-title]')
-        const text = modalAccept.querySelector('[data-modal-text]')
-        const button = modalAccept.querySelector('[data-modal-close]')
-        title.textContent = 'Ошибка!'
-        text.textContent = error.message
-        button.textContent = 'Закрыть'
-        resetForm();
-        _fancyapps_ui__WEBPACK_IMPORTED_MODULE_1__.Fancybox.show([{
-          src: '#accept',
-          type: 'inline',
-        }])
+    grecaptcha.ready(function() {
+      grecaptcha.execute("6LfubP0pAAAAAKqEg3MYhQVtlVZceIXCXbpA8JYT", { action: "submit" }).then(function(token) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post(url, data)
+          .then(response => response.data)
+          .then(data => {
+            const modalAccept = document.querySelector(".modal--accept");
+            const title = modalAccept.querySelector("[data-modal-title]");
+            const text = modalAccept.querySelector("[data-modal-text]");
+            const button = modalAccept.querySelector("[data-modal-close]");
+            title.textContent = "вы успешно прошли регистрацию!";
+            text.textContent = "Ждём Вас на форуме!";
+            button.textContent = "Отлично!";
+            resetForm();
+            _fancyapps_ui__WEBPACK_IMPORTED_MODULE_1__.Fancybox.show([{
+              src: "#accept",
+              type: "inline"
+            }]);
+          })
+          .catch(error => {
+            console.error(error);
+            const modalAccept = document.querySelector(".modal--accept");
+            const title = modalAccept.querySelector("[data-modal-title]");
+            const text = modalAccept.querySelector("[data-modal-text]");
+            const button = modalAccept.querySelector("[data-modal-close]");
+            title.textContent = "Ошибка!";
+            text.textContent = error.message;
+            button.textContent = "Закрыть";
+            resetForm();
+            _fancyapps_ui__WEBPACK_IMPORTED_MODULE_1__.Fancybox.show([{
+              src: "#accept",
+              type: "inline"
+            }]);
+          });
       });
+    });
   };
 };
+
+/***/ }),
+
+/***/ "./src/js/app/map.js":
+/*!***************************!*\
+  !*** ./src/js/app/map.js ***!
+  \***************************/
+/***/ (function() {
+
+initMap();
+
+async function initMap() {
+  await ymaps3.ready;
+
+  const mapContainer = document.getElementById("yandexMap");
+  if (!mapContainer) return;
+  const { YMap, YMapDefaultSchemeLayer, YMapControls } = ymaps3;
+  const { YMapZoomControl } = await ymaps3.import("@yandex/ymaps3-controls@0.0.1");
+
+  const map = new YMap(
+    mapContainer,
+    {
+      zoomRange: { min: 1, max: 20 },
+      location: {
+        center: [20.159022, 54.945160],
+
+        zoom: 17
+      },
+      behaviors: ["drag", "pinchZoom", "dblClick"]
+    }
+  );
+
+  map.addChild(
+    new YMapControls({ position: "right" })
+      .addChild(new YMapZoomControl({}))
+  );
+  map.addChild(new YMapDefaultSchemeLayer());
+}
 
 /***/ }),
 
@@ -23490,12 +23627,18 @@ const initMask = () => {
     if (el.type === 'tel') {
       (0,inputmask_lib_inputmask__WEBPACK_IMPORTED_MODULE_0__["default"])({"mask": "+7 (999) 999-99-99"}).mask(el);
     } else if (el.hasAttribute('data-text')) {
-      (0,inputmask_lib_inputmask__WEBPACK_IMPORTED_MODULE_0__["default"])({ regex: "[А-Яа-яA-Za-z]+" }).mask(el)
+      (0,inputmask_lib_inputmask__WEBPACK_IMPORTED_MODULE_0__["default"])({ regex: "[А-Яа-я]+" }).mask(el)
     }else if (el.hasAttribute('data-date')) {
       (0,inputmask_lib_inputmask__WEBPACK_IMPORTED_MODULE_0__["default"])({ regex: "^(0[1-9]|[12][0-9]|3[01])\\.(0[1-9]|1[0-2])\\.(19\\d{2}|20\\d{2})$" }).mask(el);
     } else if (el.hasAttribute('data-email')) {
       (0,inputmask_lib_inputmask__WEBPACK_IMPORTED_MODULE_0__["default"])({
         mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+        definitions: {
+          '*': {
+            validator: "[A-Za-z0-9_!#$%&'*+/=?^_`{|}~\\-]",
+            cardinality: 1,
+          },
+        },
         greedy: false,
         onBeforePaste: function (pastedValue, opts) {
           pastedValue = pastedValue.toLowerCase();
@@ -23661,7 +23804,12 @@ const initToUp = () => {
 /*!********************************!*\
   !*** ./src/js/app/showMore.js ***!
   \********************************/
-/***/ (function() {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap/ScrollTrigger */ "./node_modules/gsap/ScrollTrigger.js");
+
 
 document.addEventListener("DOMContentLoaded", () => {
   initShowMore();
@@ -23684,6 +23832,7 @@ const initShowMore = () => {
         showMoreBtn.textContent = "Показать полностью";
         isOpen = !isOpen;
       }
+      gsap_ScrollTrigger__WEBPACK_IMPORTED_MODULE_0__.ScrollTrigger.refresh(true)
     });
   });
 };
@@ -36866,7 +37015,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_scroll__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app/scroll */ "./src/js/app/scroll.js");
 /* harmony import */ var _app_scroll__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_app_scroll__WEBPACK_IMPORTED_MODULE_11__);
 /* harmony import */ var _app_showMore__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app/showMore */ "./src/js/app/showMore.js");
-/* harmony import */ var _app_showMore__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_app_showMore__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _app_map__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app/map */ "./src/js/app/map.js");
+/* harmony import */ var _app_map__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_app_map__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _app_customSelect__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app/customSelect */ "./src/js/app/customSelect.js");
+/* harmony import */ var _app_customSelect__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_app_customSelect__WEBPACK_IMPORTED_MODULE_14__);
+
+
 
 
 
