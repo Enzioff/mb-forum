@@ -102,6 +102,11 @@ const initForm = () => {
         attention.classList.add("active");
       }
 
+      if (input.hasAttribute("data-patronymic") && input.value.length <= 0) {
+        error = true;
+        attention.classList.add("active");
+      }
+
       if (input.hasAttribute("data-email") && !regexp.test(input.value)) {
         error = true;
         attention.classList.add("active");

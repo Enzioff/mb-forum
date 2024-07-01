@@ -34,11 +34,8 @@
 @import "modules/info/info";
 @import "modules/decor/decor";
 @import "modules/head/head";
-@import "modules/article-guest/article-guest";
 @import "modules/grid/grid";
-@import "modules/article-guest/article-guest";
 @import "modules/subtitle/subtitle";
-@import "modules/article-speaker/article-speaker";
 @import "modules/slider/slider";
 @import "modules/features/features";
 @import "modules/about/about";
@@ -46,7 +43,6 @@
 @import "modules/video-block/video-block";
 @import "modules/article-feedback/article-feedback";
 @import "modules/social/social";
-@import "modules/article-partner/article-partner";
 @import "modules/map/map";
 @import "modules/footer/footer";
 @import "modules/section-decor/section-decor";
@@ -54,4 +50,10 @@
 @import "modules/modal/modal";
 @import "modules/mobile-menu/mobile-menu";
 @import "modules/program/program";
+@import "modules/partners/partners";
+
+
+@import "modules/article-guest/article-guest";
+@import "modules/article-speaker/article-speaker";
+@import "modules/article-partner/article-partner";
 @import "modules/article-program/article-program";

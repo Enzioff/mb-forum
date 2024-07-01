@@ -3,8 +3,18 @@
   align-content: center;
   justify-content: center;
   height: 159px;
+  width: 100%;
+  max-width: 292px;
   padding: 0 53px;
   border: 1px solid rgba($blue-light, 0.5);
+
+  &--main {
+    grid-column: span 4;
+
+    @include r($mobile) {
+      grid-column: auto;
+    }
+  }
 
   &__picture {
     display: flex;
