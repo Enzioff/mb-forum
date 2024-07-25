@@ -8,6 +8,22 @@
   padding: 0 53px;
   border: 1px solid rgba($blue-light, 0.5);
 
+  &--red {
+    padding: 10px 0;
+    .article-partner__picture {
+      width: 80%;
+      padding: 20px;
+      border-radius: 20px;
+      background-color: $red;
+
+      img {
+        display: flex;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
   &--main {
     grid-column: span 4;
 

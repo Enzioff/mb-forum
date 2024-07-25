@@ -15,7 +15,7 @@
   &__wrapper {
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 292px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 292px));
     justify-content: center;
     justify-items: center;
     width: 100%;
