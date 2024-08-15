@@ -6326,6 +6326,12 @@ input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner
   font-weight: 600;
   line-height: 28.8px;
 }
+.article-program__text--closest {
+  margin-bottom: 12px;
+}
+.article-program__text--closest:not(:last-of-type) {
+  margin-bottom: 12px;
+}
 .article-program ol.article-program__list {
   list-style: inside decimal;
 }
