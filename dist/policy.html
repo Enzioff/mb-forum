@@ -12,11 +12,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
 <link rel="manifest" href="./assets/site.webmanifest">
+<meta property="og:image" content="https://balticforum.ru/assets/images/banner.png"/>
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <script src="https://api-maps.yandex.ru/v3/?apikey=acca11bc-3f0a-4a61-a0ca-f77afc50f8d8&lang=ru_RU"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LfubP0pAAAAAKqEg3MYhQVtlVZceIXCXbpA8JYT"></script>
+
   <title>Море бизнеса | Политика конфиденциальности</title>
 <link href="./css/main.css" rel="stylesheet"></head>
 
@@ -182,7 +184,7 @@
       <div class="footer__bottom">
         <div class="footer__links">
           <a href="./policy.html" class="footer__text footer__text--small" target="_blank">Политика конфиденциальности</a>
-          <a href="#" class="footer__text footer__text--small">Соглашение на обработку персональных данных</a>
+          <a href="./assets/Согласие_на_обработку_персональных_данных.docx" class="footer__text footer__text--small" download>Соглашение на обработку персональных данных</a>
         </div>
         <div class="footer__social">
           <a href="https://t.me/mbkld" class="footer__text footer__text--bold">telegram</a>
@@ -254,7 +256,7 @@
           <span class="attention">Обязательное поле!</span>
         </label>
         <label class="modal__item" data-jur-item>
-          <input class="input" type="number" name="OKVED" placeholder="ОКВЭД">
+          <input class="input" type="number" name="OKVED" placeholder="ОКВЭД" data-okved>
           <span class="attention">Ошибка при заполнении!</span>
         </label>
         <label class="modal__item" data-jur-item>
@@ -302,17 +304,29 @@
             <div class="custom-select__item" data-value="Neuro for business" data-custom-select-item>
               Мастер-класс «Нейросети не только для гигантов: большие возможности для малого бизнеса»
             </div>
+            <div class="custom-select__item" data-value="Tell about yourself" data-custom-select-item>
+              Мастер-класс «Как рассказать о себе, чтобы Вас запомнили?»
+            </div>
+            <div class="custom-select__item" data-value="B2B speech vladimir" data-custom-select-item>
+              B2B переговоры с потенциальными партнерами из Владимирской области
+            </div>
+            <div class="custom-select__item" data-value="Family business" data-custom-select-item>
+              Семейный бизнес как основа региональной экономики
+            </div>
+            <div class="custom-select__item" data-value="Agricultural Fair" data-custom-select-item>
+              Ярмарка сельскохозяйственных производителей Калининградской области
+            </div>
           </div>
         </div>
       </fieldset>
       <div class="modal__list">
         <label class="modal__label">
           <input class="checkbox" type="checkbox" data-form-accept>
-          <span>Я соглашаюсь с условиями и даю согласие на обработку <a href="#">персональных данных</a></span>
+          <span>Я соглашаюсь с условиями и даю согласие на обработку <a href="./assets/Согласие_на_обработку_персональных_данных.docx" download>персональных данных</a></span>
         </label>
         <label class="modal__label">
           <input class="checkbox" type="checkbox" data-form-accept>
-          <span>Согласие с <a href="./pages/policy.html">политикой конфиденциальности</a></span>
+          <span>Согласие с <a href="./policy.html">политикой конфиденциальности</a></span>
         </label>
       </div>
       <button type="submit" class="button">Зарегистрироваться</button>

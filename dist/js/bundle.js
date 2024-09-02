@@ -23430,10 +23430,10 @@ const initForm = () => {
       const input = el.querySelector("input");
       const regexp = /^[a-zA-Z0-9а-яА-Я._%+-]+@[a-zA-Z0-9а-яА-Я.-]+\.[a-zA-Zа-яА-Я]{2,}$/;
 
-      if (input.value.length >= 1 && input.value.length <= 3) {
+      if (input.value.length >= 1 && input.value.length < 1) {
         error = true;
         attention.classList.add("active");
-      } else if (input.value !== "" && input.value.length > 3) {
+      } else if (input.value !== "" && input.value.length >= 3) {
         attention.classList.remove("active");
       }
 
@@ -23581,7 +23581,7 @@ const initForm = () => {
 initMap();
 
 async function initMap() {
-  await ymaps3.ready;
+  await ymaps3.ready
 
   const mapContainer = document.getElementById("yandexMap");
   if (!mapContainer) return;
@@ -23601,11 +23601,11 @@ async function initMap() {
     }
   );
 
+  map.addChild(new YMapDefaultSchemeLayer());
   map.addChild(
     new YMapControls({ position: "right" })
       .addChild(new YMapZoomControl({}))
   );
-  map.addChild(new YMapDefaultSchemeLayer());
 }
 
 /***/ }),
@@ -23826,6 +23826,7 @@ const initShowMore = () => {
   limitBlocks.forEach(block => {
     const showMoreBtn = block.querySelector(".show-more");
     let isOpen = false;
+    if (!showMoreBtn) return
     showMoreBtn.addEventListener("click", (evt) => {
       evt.preventDefault();
       if (!isOpen) {

@@ -1,7 +1,7 @@
 initMap();
 
 async function initMap() {
-  await ymaps3.ready;
+  await ymaps3.ready
 
   const mapContainer = document.getElementById("yandexMap");
   if (!mapContainer) return;
@@ -21,9 +21,9 @@ async function initMap() {
     }
   );
 
+  map.addChild(new YMapDefaultSchemeLayer());
   map.addChild(
     new YMapControls({ position: "right" })
       .addChild(new YMapZoomControl({}))
   );
-  map.addChild(new YMapDefaultSchemeLayer());
 }

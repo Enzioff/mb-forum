@@ -10,6 +10,7 @@ const initShowMore = () => {
   limitBlocks.forEach(block => {
     const showMoreBtn = block.querySelector(".show-more");
     let isOpen = false;
+    if (!showMoreBtn) return
     showMoreBtn.addEventListener("click", (evt) => {
       evt.preventDefault();
       if (!isOpen) {

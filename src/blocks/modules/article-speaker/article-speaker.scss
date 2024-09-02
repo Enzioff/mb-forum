@@ -16,6 +16,50 @@
     }
   }
 
+  &--accent {
+    border: 2px solid $red-accent;
+    background: $red;
+    box-shadow: 0 0 30px -2px $red;
+
+    .article-speaker__post {
+      margin-bottom: 10px;
+      text-align: center;
+
+      &.anim-true {
+        animation: headLiner 1s linear infinite;
+      }
+
+      @keyframes headLiner {
+        0% {
+          color: $blue;
+          font-size: 14px;
+        }
+        20% {
+          color: $red-accent;
+          font-size: 20px;
+        }
+        40% {
+          color: $dark;
+          font-size: 14px;
+        }
+        60% {
+          color: $blue-dark;
+          font-size: 20px;
+        }
+        80% {
+          color: beige;
+          font-size: 14px;
+        }
+        100% {
+          color: $blue-black;
+        }
+      }
+    }
+    .article-speaker__title {
+      color: $blue-shine;
+    }
+  }
+
   &__picture {
     display: flex;
     height: 362px;

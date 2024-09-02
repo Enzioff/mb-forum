@@ -1,0 +1,31 @@
+.discount {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 23px 20px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 20px;
+    padding: 20px 19px;
+    background-color: $blue-black;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+    text-align: left;
+    color: $red;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
+    text-align: left;
+    color: $white;
+  }
+}

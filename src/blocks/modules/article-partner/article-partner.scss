@@ -8,6 +8,10 @@
   padding: 0 53px;
   border: 1px solid rgba($blue-light, 0.5);
 
+  &--full {
+    background-color: $white;
+  }
+
   &--red {
     padding: 10px 0;
     .article-partner__picture {
